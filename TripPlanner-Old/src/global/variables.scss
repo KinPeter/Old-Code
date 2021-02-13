@@ -1,0 +1,26 @@
+$teal: #00897b;
+$teal-lighter: #26a69a;
+$teal-darker: #00796b;
+$deep-orange: #ff5722;
+$deep-orange-lighter: #ff8a65;
+$deep-orange-darker: #e64a19;
+$warn: #f44336;
+
+$text-default: rgba(0, 0, 0, 0.85);
+$text-light: rgba(0, 0, 0, 0.54);
+
+$light-grey: #e0e0e0;
+
+html {
+  --color-teal: #00897b;
+  --color-teal-lighter: #26a69a;
+  --color-teal-darker: #00796b;
+  --color-deep-orange: #ff5722;
+  --color-deep-orange-lighter: #ff8a65;
+  --color-deep-orange-darker: #e64a19;
+  --color-warn: #f44336;
+  --color-light-grey: #e0e0e0;
+
+  --color-text-default: rgba(0, 0, 0, 0.85);
+  --color-text-light: rgba(0, 0, 0, 0.54);
+}

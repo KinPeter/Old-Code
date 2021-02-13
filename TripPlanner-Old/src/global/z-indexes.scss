@@ -1,0 +1,36 @@
+// leaflet map z-index is set to 400 by default!
+
+aside.menu-bar {
+  z-index: 100;
+}
+
+section.login-modal-wrapper {
+  .modal-overlay {
+    z-index: 99;
+  }
+  .login-modal {
+    z-index: 100;
+  }
+}
+
+div.map {
+  &:before {
+    // map inset shadow
+    z-index: 401;
+  }
+}
+
+.planner .resizer {
+  z-index: 402;
+  &:before {
+    z-index: 403;
+  }
+}
+
+mat-progress-bar {
+  z-index: 402;
+  &:before {
+    // progress bar inset shadow
+    z-index: 403;
+  }
+}

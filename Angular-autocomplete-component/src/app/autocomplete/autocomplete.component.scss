@@ -1,0 +1,44 @@
+@import '~src/variables';
+
+.wrapper {
+    padding: $wrapperPadding;
+
+    // .toggle-wrapper {
+    //     display: flex;
+    //     flex-flow: row-reverse;
+    //     position: relative;
+    //     .toggle-box {
+    //         cursor: pointer;
+    //         position: absolute;
+    //         top: -56px;
+    //         right: 10px;
+    //         height: 13px;
+    //         width: 13px;
+    //         border-radius: 50%;
+    //         &.toggle-on {
+    //             @include toggleButton($toggleColorOn, $toggleColorOff);
+    //         }
+    //         &.toggle-off {
+    //             @include toggleButton($toggleColorOff, $toggleColorOn);
+    //         }
+    //         &:hover {
+    //             .toggle-info {
+    //                 opacity: 1;
+    //                 transform: scaleX(1);
+    //             }
+    //         }
+    //         .toggle-info {
+    //             position: absolute;
+    //             right: 10px;
+    //             top: -3px;
+    //             width: 140px;
+    //             font-size: .8rem;
+    //             color: darkgray;
+    //             transform-origin: center right;
+    //             transform: scaleX(0);
+    //             opacity: 0;
+    //             transition: all .2s ease-in;
+    //         }
+    //     }
+    // }
+}

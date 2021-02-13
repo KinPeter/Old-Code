@@ -1,0 +1,5 @@
+local-version/sources/
+local-version/static/
+server-client-version/client/sources/
+server-client-version/client/static/
+server-client-version/server/node_modules/

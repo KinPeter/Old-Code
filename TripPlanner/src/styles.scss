@@ -1,0 +1,25 @@
+@import './global/material-theming';
+@import './global/material-overrides';
+@import './global/z-indexes';
+@import './global/variables';
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, 'Helvetica Neue', sans-serif;
+  color: rgba(0, 0, 0, 0.85);
+}
+
+// global styles for snackbar, used in config as "panelClass"
+.snackbar-success {
+  color: #26a69a !important;
+}
+.snackbar-error {
+  color: #ff4444 !important;
+}
+.snackbar-info {
+  color: #33b5e5 !important;
+}

@@ -1,0 +1,41 @@
+{
+  "common": {
+    "language": "Nyelv",
+    "languages": {
+      "en": "Angol",
+      "hu": "Magyar"
+    },
+    "tabTitles": {
+      "auth": "Üdv",
+      "myTrips": "Útjaim",
+      "profile": "Profilom",
+      "editor": "Tervező"
+    },
+    "defaultErrorMessage": "Hiba történt a kérés feldolgozása közben. Próbáld újra később, vagy vedd fel velünk a kapcsolatot!"
+  },
+  "auth": {
+    "login": "Bejelentkezés",
+    "signup": "Regisztráció",
+    "messages": {
+      "loginSuccess": "Sikeres bejelentkezés!",
+      "badCredentials": "Nem sikerült bejelentkezni. Ellenőrizd a megadott adatokat.",
+      "tokenRefreshFailed": "A token frissítése sikertelen.",
+      "logOut": "Viszlát legközelebb..."
+    },
+    "c": {
+      "common": {
+        "email": "Email",
+        "password": "Jelszó",
+        "emailRequired": "Email megadása kötelező",
+        "invalidEmail": "Rossz email formátum",
+        "passwordRequired": "Jelszó megadása kötelező"
+      },
+      "login": {
+        "title": "Jelentkezz be",
+        "subtitle": "Csak a szokásos dolgokat kell megadnod",
+        "forgotPassword": "Elfejetetted a jelszavad?",
+        "clickHere": "Kattints ide!"
+      }
+    }
+  }
+}

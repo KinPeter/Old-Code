@@ -1,0 +1,35 @@
+@import '~src/variables';
+
+.input-wrapper {
+    display: flex;
+    .input-field {
+        flex-grow: 2;
+        padding: $inputFieldPadding;
+        border: $inputFieldBorder;
+        border-radius: $inputFieldBorderRadius;
+        &:focus {
+            border-color: $inputFieldAndButtonBorderColorOnFocus;
+            box-shadow: $inputFieldAndButtonShadowOnFocus;
+            outline: none; //remove browser default outline
+        }
+    }
+}
+
+button {
+    cursor: pointer;
+    padding: $buttonPadding;
+    margin-top: $buttonMarginTop;
+    border: $buttonBorder;
+    border-radius: $buttonBorderRadius;
+    color: $buttonTextColor;
+    background-color: $buttonBackgroundColor;
+    &:hover {
+        color: $buttonHoverTextColor;
+        background-color: $buttonHoverBackgroundColor;
+    }
+    &:focus {
+        border-color: $inputFieldAndButtonBorderColorOnFocus;
+        box-shadow: $inputFieldAndButtonShadowOnFocus;
+        outline: none;
+    }
+}

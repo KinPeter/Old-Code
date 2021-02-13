@@ -1,0 +1,169 @@
+// sass --watch styles.scss:styles.css
+$transBlue: rgba(0, 0, 255, 0.6);
+$transBlueHover: rgba(0, 0, 255, 0.795);
+$transWhite: rgba(255, 255, 255, 0.65);
+$boxShadow: 4px 4px 8px rgba(0,0,0,0.4);
+$borderBottom: 4px solid $transBlue;
+
+body {
+    background-image: url(./sources/hexellence_@2X.png);
+    font-family: Georgia, serif;
+    font-weight: 300;
+}
+#dict-wrapper {
+    max-width: 700px;
+    min-height: 95vh;
+    padding: 1rem;
+    @media (min-width: 576px) { 
+        padding: 3rem;
+    }    
+}
+.title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    margin-top: 2rem;
+    font-family: 'Cinzel', serif;
+    @media (min-width: 576px) { 
+        font-size: 2rem;
+        margin-bottom: 2rem;
+    }
+}
+#dict-input {
+    background-color: $transWhite;
+    box-shadow: $boxShadow;
+    border-bottom: $borderBottom;
+    border-radius: 0;
+}
+#dict-submit {
+    background-color: $transBlue;
+    color: white;
+    width: 150px;
+    font-weight: bold;
+    border: 1px solid $transWhite;
+    box-shadow: $boxShadow;
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+    &:hover {
+        background-color: $transBlueHover;
+    }
+}
+.footer {
+    text-align: center;
+    height: 5vh;
+    min-height: 40px;
+    background-color: $transBlue;
+    padding: .5rem;
+    color: white;
+    text-shadow: 2px 2px 2px #5680e9;
+    border-top: 1px solid white;
+    a {
+        color: blue;
+        text-shadow: 2px 2px 2px $transWhite;
+    }
+}
+/*************************************************
+*                  RESULT CARDS  
+*/
+.results-wrapper {
+    padding: 0rem;
+    @media (min-width: 576px) { 
+        padding: 2rem;
+    }
+    .result-box {
+        background: rgba(255, 255, 255, 0.65);
+        margin-bottom: .5rem;
+        box-shadow: $boxShadow;
+        border-bottom: $borderBottom;
+
+        .result-row {
+            padding: .8rem;
+        }
+        .row-one {
+            border-bottom: 1px solid $transBlue;
+            font-weight: bold;
+            sup {
+                color: $transBlue;
+                position: relative;
+                top: -.7rem;
+                margin-left: -.2rem;
+                margin-right: .3rem;
+                opacity: .3;
+            }
+        }
+        .row-two {
+            padding-left: 2.5rem;
+            padding-right: 1rem;
+            font-family: "Trebuchet MS", Helvetica, sans-serif;
+        }
+    }
+}
+
+/*************************************************
+*                   CHECKBOX  
+*/
+.custom-checkbox label{
+    cursor: pointer;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 400;
+}
+.custom-control-label:before{
+    background-color: $transWhite;
+    border: 1px solid $transBlue;
+}
+.custom-checkbox .custom-control-input:checked ~ .custom-control-label::before {
+    background-color: $transBlue !important;
+    border: 1px solid rgba(0,0,0,.4);
+}
+.custom-checkbox .custom-control-input:checked:focus ~ .custom-control-label::before {
+    box-shadow: 0 0 0 1px #fff, 0 0 0 0.2rem rgba(0, 0, 0, 0.25)
+}
+.custom-checkbox .custom-control-input:focus ~ .custom-control-label::before {
+    box-shadow: 0 0 0 1px #fff, 0 0 0 0.2rem rgba(0, 0, 0, 0.25)
+}
+.custom-checkbox .custom-control-input:active ~ .custom-control-label::before {
+    background-color: $transWhite; 
+}
+
+/*************************************************
+*                 AUTOCOMPLETE
+*/
+.ui-autocomplete {
+    max-height: 200px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    border-radius: 5px;
+    box-shadow: 5px 5px 10px rgba(0,0,0,0.5);
+    padding: 4px 4px;
+    font-family: Georgia, serif;
+    background-color: rgb(139, 170, 255);
+}
+.ui-menu-item .ui-state-active {
+    color: #ffffff;
+    text-decoration: none;
+    background-color: $transBlue !important;
+    border: none;
+}
+/*************************************************
+*                 BACK TO TOP 
+*/
+#back-to-top {
+    cursor: pointer;
+    text-align: center;
+    width: 4rem;
+    height: 4rem;
+    padding-top: .6rem;
+    border-radius: 50%;
+    border: 3px solid $transBlue;
+    background: $transWhite;
+    color: $transBlue;
+    position: fixed;
+    bottom: 1rem;
+    right: 1rem;
+    z-index: 99;
+    display: none;
+    &:hover {
+        color: $transBlueHover;
+        border: 3px solid $transBlueHover;
+    }
+}

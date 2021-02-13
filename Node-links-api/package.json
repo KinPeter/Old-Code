@@ -1,0 +1,17 @@
+{
+  "name": "ptkin-link-api",
+  "version": "1.0.0",
+  "description": "my links API",
+  "main": "links-api.js",
+  "scripts": {
+    "start": "node links-api.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Peter Kin",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4",
+    "sqlite3": "^4.0.6"
+  }
+}

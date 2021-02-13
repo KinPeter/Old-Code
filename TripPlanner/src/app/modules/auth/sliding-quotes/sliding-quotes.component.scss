@@ -1,0 +1,80 @@
+.quote-wrapper {
+  position: relative;
+  img {
+    position: absolute;
+    opacity: 0.7;
+  }
+  .quote {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transform: translateX(-40vw);
+    transition: all 0.5s ease;
+    &.come-in {
+      opacity: 1;
+      transform: translateX(0);
+    }
+    p {
+      color: #fff;
+      &.text {
+        position: relative;
+        font-weight: bold;
+      }
+      &.author {
+        text-align: right;
+        font-style: italic;
+      }
+    }
+  }
+  &.big {
+    width: 65%;
+    height: 80%;
+    margin-left: 5rem;
+    // margin-top: 3rem;
+    img {
+      height: 100px;
+    }
+    .quote {
+      p {
+        &.text {
+          margin-top: 1.5rem;
+          margin-left: 130px;
+          font-size: 2.5rem;
+          @media (min-width: 1025px) {
+            font-size: 3rem;
+          }
+        }
+        &.author {
+          font-size: 1.3rem;
+          margin-top: -3rem;
+        }
+      }
+    }
+  }
+  &.small {
+    width: 70%;
+    height: 100%;
+    margin: 2rem auto;
+    overflow: hidden;
+    img {
+      height: 75px;
+    }
+    .quote {
+      p {
+        &.text {
+          margin-top: 1rem;
+          margin-left: 90px;
+          font-size: 1.3rem;
+          @media (min-width: 1025px) {
+            font-size: 2rem;
+          }
+        }
+        &.author {
+          margin-top: -1.5rem;
+          margin-right: 1rem;
+        }
+      }
+    }
+  }
+}

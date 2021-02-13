@@ -1,0 +1,46 @@
+@import '~src/variables';
+
+.option-wrapper {
+    position: relative;
+    top: -1.9rem;
+    text-align: left;
+    width: 100%;
+    ::-webkit-scrollbar { 
+        display: none; 
+    }
+    .option-list {
+        max-height: $optionBoxMaxHeight;
+        overflow-y: auto;
+        width: calc(100% - 2px);
+        position: absolute;
+        background: $optionBoxBackgroundColor; // fallback
+        // scroll hint effect:
+        background: linear-gradient(white 15px, hsla(0,0%,100%,0)) 0 0 / 100% 50px,
+                    radial-gradient(at top, rgba(0,0,0,.3), transparent 70%) 0 0 / 100% 15px,
+                    linear-gradient(to top, white 15px, hsla(0,0%,100%,0)) bottom / 100% 50px,
+                    radial-gradient(at bottom, rgba(0,0,0,.3), transparent 70%) bottom / 100% 15px,
+                    linear-gradient($optionBoxBackgroundColor, $optionBoxBackgroundColor);
+        background-repeat: no-repeat;
+        background-attachment: local, scroll, local, scroll, scroll;
+        border: $optionBoxBorder;
+        border-radius: $optionBoxBorderRadius;
+        box-shadow: $optionBoxShadow;
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        
+        li {
+            padding-left: .5rem;
+            color: $optionTextColor;
+            cursor: pointer;
+            &:hover {
+                background-color: $optionHoverBackgroundColor;
+                color: $optionHoverTextColor;
+            }
+        }
+        .hovered {
+            background-color: $optionHoverBackgroundColor;
+            color: $optionHoverTextColor;
+        }
+    }
+}

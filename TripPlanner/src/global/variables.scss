@@ -1,0 +1,31 @@
+html {
+  --color-teal: #00897b;
+  --color-teal-lighter: #26a69a;
+  --color-teal-darker: #00796b;
+  --color-deep-orange: #ff5722;
+  --color-deep-orange-lighter: #ff8a65;
+  --color-deep-orange-darker: #e64a19;
+
+  --color-black-85: rgba(0, 0, 0, 0.85);
+  --color-black-56: rgba(0, 0, 0, 0.56);
+  --color-black-40: rgba(0, 0, 0, 0.4);
+  --color-black-32: rgba(0, 0, 0, 0.32);
+  --color-black-10: rgba(0, 0, 0, 0.1);
+
+  --color-white-40: rgba(255, 255, 255, 0.4);
+
+  --color-primary: var(--color-teal);
+  --color-primary-lighter: var(--color-teal-lighter);
+  --color-primary-darker: var(--color-teal-darker);
+
+  --color-accent: var(--color-deep-orange);
+  --color-accent-lighter: var(--color-deep-orange-lighter);
+  --color-accent-darker: var(--color-deep-orange-darker);
+
+  --color-warn: #f44336;
+
+  --color-text-default: var(--color-black-85);
+  --color-text-light: var(--color-black-56);
+  --color-text-lighter: var(--color-black-40);
+  --color-text-lightest: var(--color-black-32);
+}

@@ -1,0 +1,10 @@
+<div *ngIf="options && options.length > 0" class="option-wrapper">
+    <ul class="option-list" #list>
+        <li 
+            *ngFor="let option of options; index as i"
+            (click)="onOptionClick(option)"
+            [class.hovered]="selectedIndex === i"
+            #listItem
+            >{{ option }}</li>
+    </ul>
+</div>

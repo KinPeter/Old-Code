@@ -1,0 +1,32 @@
+.mat-toolbar,
+.mat-toolbar-row,
+.mat-toolbar-single-row {
+  height: 56px;
+}
+
+.auth-page {
+  .mat-tab-label {
+    color: white;
+  }
+  .mat-tab-header {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  }
+}
+
+.cdk-overlay-dark-backdrop {
+  background: rgba(0, 0, 0, 0.52);
+}
+
+tp-trips {
+  .mat-fab {
+    width: auto;
+    border-radius: 28px;
+  }
+  .mat-fab .mat-button-wrapper {
+    padding: 16px;
+  }
+}
+
+.mat-dialog-container {
+  max-height: 100vh !important;
+}

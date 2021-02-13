@@ -1,0 +1,14 @@
+# compiled output
+/dist
+/tmp
+/out-tsc
+
+# dependencies
+/node_modules
+
+# third party
+pk-deploy.js
+pk-deploy.config.js
+
+# old code
+/src/_old_app/*

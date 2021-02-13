@@ -1,0 +1,177 @@
+body {
+  background: -webkit-linear-gradient(315deg, #1440f0 30%, #000000 50%, #b61d1d 70%);
+  background: -o-linear-gradient(315deg, #1440f0 30%, #000000 50%, #b61d1d 70%);
+  background: linear-gradient(135deg, #1440f0 30%, #000000 50%, #b61d1d 70%);
+  background-attachment: fixed;
+  height: 100vh;
+  width: 100vw; }
+  @media all and (min-width: 576px) {
+    body {
+      background: -webkit-linear-gradient(315deg, #6785fd 30%, #797979 50%, #f16c6c 70%);
+      background: -o-linear-gradient(315deg, #6785fd 30%, #797979 50%, #f16c6c 70%);
+      background: linear-gradient(135deg, #6785fd 30%, #797979 50%, #f16c6c 70%);
+      background-attachment: fixed; } }
+
+#error-container {
+  display: none;
+  width: 100%;
+  height: 100%;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  position: absolute;
+  z-index: 100; }
+  #error-container #update-error {
+    width: 90%;
+    text-align: center;
+    height: 50px;
+    padding-top: 10px;
+    background-color: #000000d0;
+    border: 2px solid #dc3545;
+    color: #dc3545;
+    font-weight: bold; }
+    @media all and (min-width: 768px) {
+      #error-container #update-error {
+        height: 100px;
+        max-width: 400px;
+        position: relative;
+        top: -100px;
+        padding-top: 33px; } }
+
+.loading {
+  color: white;
+  font-size: 2rem;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 5rem; }
+
+.container {
+  max-width: 1000px;
+  min-height: 95vh; }
+
+.list-counter {
+  text-align: center;
+  padding-top: .3rem;
+  color: #ffffff;
+  font-weight: bold;
+  text-shadow: 1px 1px 1px #00000081; }
+  @media all and (min-width: 768px) {
+    .list-counter {
+      font-size: 1.5rem; } }
+
+#hun-word {
+  background: rgba(255, 255, 255, 0.5);
+  text-align: center;
+  font-size: 1.2rem;
+  margin: .5rem auto 1rem auto;
+  padding: .2rem .5rem; }
+  @media all and (min-width: 768px) {
+    #hun-word {
+      font-size: 1.5rem;
+      padding: 1rem 2rem;
+      margin: 1rem auto 2rem auto; } }
+
+.mycard {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  text-align: center;
+  font-size: 1.3rem;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  width: 100%;
+  height: 100px;
+  border: 1px solid white;
+  margin-bottom: 1rem;
+  padding: .5rem;
+  cursor: pointer;
+  background: -webkit-linear-gradient(315deg, white 50%, #cecece 100%);
+  background: -o-linear-gradient(315deg, white 50%, #cecece 100%);
+  background: linear-gradient(135deg, white 50%, #cecece 100%); }
+  @media all and (min-width: 840px) {
+    .mycard {
+      height: 200px;
+      font-size: 2rem; } }
+  .mycard #card0, .mycard #card1, .mycard #card2, .mycard #card3 {
+    font-family: 'Noto Serif KR', serif;
+    -webkit-box-flex: 1;
+    -ms-flex: auto;
+    flex: auto; }
+
+.correct-card, .wrong-card, .button {
+  font-weight: bold;
+  color: white; }
+
+.correct-card {
+  background: #28a745 !important; }
+
+.wrong-card {
+  background: #dc3545 !important; }
+
+.buttons {
+  margin-bottom: 1rem; }
+  @media all and (min-width: 576px) {
+    .buttons {
+      width: auto;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-pack: center;
+      -ms-flex-pack: center;
+      justify-content: center;
+      margin-bottom: 0; } }
+  @media all and (min-width: 768px) {
+    .buttons {
+      padding: 1rem 2rem; } }
+
+.button {
+  padding: .5rem;
+  margin-bottom: .5rem;
+  cursor: pointer;
+  text-align: center;
+  border: 1px solid white; }
+  @media all and (min-width: 576px) {
+    .button {
+      -webkit-box-flex: 1;
+      -ms-flex: 1 1 200px;
+      flex: 1 1 200px; } }
+  @media all and (min-width: 768px) {
+    .button {
+      margin: .5rem; } }
+
+#change-list {
+  background: #dc3545; }
+  @media all and (min-width: 768px) {
+    #change-list:hover {
+      background: #ac2a37; } }
+
+#save-progress {
+  background: #28a745; }
+  @media all and (min-width: 768px) {
+    #save-progress:hover {
+      background: #208337; } }
+
+#reset-cards {
+  background: #949494; }
+  @media all and (min-width: 768px) {
+    #reset-cards:hover {
+      background: #7a7a7a; } }
+
+.footer {
+  text-align: center;
+  height: 5vh;
+  background-color: #5f5f61;
+  padding: .5rem;
+  color: white;
+  text-shadow: 2px 2px 2px #f38e8e;
+  border-top: 1px solid white; }
+  @media all and (max-width: 768px) {
+    .footer {
+      min-height: 5vh; } }
+  .footer a {
+    color: #2d95f7;
+    text-shadow: 2px 2px 2px #f38e8e4d; }

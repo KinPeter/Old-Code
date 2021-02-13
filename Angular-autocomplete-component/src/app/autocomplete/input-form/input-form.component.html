@@ -1,0 +1,14 @@
+<form 
+    (ngSubmit)=(onSubmit(f)) 
+    #f="ngForm" 
+    autocomplete="off">
+    <div class="input-wrapper">
+        <input 
+            class="input-field"
+            type="text"
+            name="searchTerm"
+            #inputField
+            ngModel>
+    </div>
+    <button type="submit">Search</button>
+</form>

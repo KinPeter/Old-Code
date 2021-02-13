@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>BullshitGenerator</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="shortcut icon" type="image/png" href="./static/favicon.png">
+    <link rel="stylesheet" href="./sources/bootstrap.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Londrina+Solid:900|Merriweather|Quicksand" rel="stylesheet">
+    <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+    
+
+    <div class="container main-wrapper">
+        <div class="row">
+            <div class="col-md-3 sidebar-top">
+
+            </div>
+
+            <div class="col-md-9 content-top">
+                <div class="language-selector text-right">
+                    <div class="" id="lang-btn"></div>
+                </div>
+
+            </div>
+    
+    
+        </div>
+        <div class="row">
+            <div class="col-md-3 sidebar-main">
+                <div class="text-center">
+                    <button id="filelist-btn" class="" data-toggle="collapse" data-target="#filelist-collapse" aria-expanded="false" aria-controls="filelist-collapse"></button>
+                </div>
+                <div class="collapse" id="filelist-collapse">
+                    <div class="file-list"></div>
+                    <div class="text-center">
+                        <button id="load-file-btn" class=""></button>
+                    </div>
+                    
+                </div>
+
+                <div class="separator"></div>
+                
+                <div>
+                    <label id="first-word-label" for="bullshit-first-word"></label>
+                    <input type="text" class="" id="bullshit-first-word">
+                    <small id="not-mandatory" class=""></small>
+                </div>
+
+                <div class="separator"></div>
+
+                <label id="length-label" for="length-value"></label> 
+                <div class="" id="length-value"></div>
+                <input type="range" class="custom-range" min="10" max="500" step="10" id="bullshit-length">
+
+                <div class="separator"></div>
+
+                <div class="text-center">
+                    <button id="generate-btn" class=""></button>
+                </div>
+
+                <div class="separator"></div>
+
+                <div id="notify-top" class="alert alert-success top-alert">
+                    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                    <div id="notify-top-message"></div>
+                </div>
+                <div id="error-top" class="alert alert-danger top-alert">
+                    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                    <div id="error-top-message"></div>
+                </div>
+
+
+            </div>
+
+            <div class="col-md-9 content-main">
+                <div class="title">
+                    <h1>BullshitGenerator</h1>
+                </div>
+
+                <div id="text" class="my-4"></div>
+
+            </div>
+
+        </div>
+
+        <div class="row ">
+            <div class="col-12 footer">
+                with &#x1F495; from <a href="https://www.p-kin.com">p-kin.com</a>
+            </div>
+        </div>
+    </div>
+
+    <script src="./sources/jquery-3.3.1.min.js"></script>
+    <script src="./sources/bootstrap.bundle.min.js"></script>
+    <!-- <script src="./modules/ss.js"></script>
+    <script src="./modules/dataProcessor.js"></script>
+    <script src="./modules/bullshitGenerator.js"></script>
+    <script src="./modules/lang.js"></script>
+    <script src="./modules/page.js"></script> -->
+    <script src="./main.bundle.js"></script>
+</body>
+</html>
+
+

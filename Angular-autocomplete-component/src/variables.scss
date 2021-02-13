@@ -1,0 +1,46 @@
+// Customizable variables:
+
+$mainColor: #2648b9;
+$focusColor: rgb(190, 49, 49);
+$mainTextColor: black;
+
+$wrapperPadding: 2rem;
+
+$inputFieldPadding: .5rem;
+$inputFieldBorder: 1px solid $mainColor;
+$inputFieldBorderRadius: 5px;
+
+$inputFieldAndButtonBorderColorOnFocus: $focusColor;
+$inputFieldAndButtonShadowOnFocus: 0px 0px 3px $focusColor;
+
+$buttonPadding: .2rem 1rem;
+$buttonMarginTop: .5rem;
+$buttonBorder: 1px solid $mainColor;
+$buttonBorderRadius: 5px;
+$buttonBackgroundColor: white;
+$buttonTextColor: $mainTextColor;
+$buttonHoverBackgroundColor: #7588c5;
+$buttonHoverTextColor: $mainTextColor;
+
+$optionBoxMaxHeight: 150px;
+$optionBoxBackgroundColor: white;
+$optionBoxBorder: 1px solid $mainColor;
+$optionBoxBorderRadius: 5px;
+$optionBoxShadow: 1px 1px 3px #000000aa;
+$optionTextColor: $mainTextColor;
+$optionHoverBackgroundColor: lightgrey;
+$optionHoverTextColor: $mainTextColor;
+
+$toggleColorOn: #28A745;
+$toggleColorOff: #DC3545;
+
+@mixin toggleButton ($color1, $color2) {
+    background: transparent;
+    border: 1px solid $color1;
+    box-shadow: 0 0 5px $color1;
+    &:hover {
+        background: $color2;
+        border: 1px solid $color2;
+        box-shadow: 0 0 5px $color2;
+    }
+}

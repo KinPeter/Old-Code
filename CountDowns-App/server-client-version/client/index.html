@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>CountDowns</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- <link rel="shortcut icon" type="image/png" href="./favicon.png"> -->
+    <link rel="stylesheet" href="./sources/bootstrap.min.css">
+    <link href="https://unpkg.com/gijgo@1.9.13/css/gijgo.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="./styles.css">
+    <link href="https://fonts.googleapis.com/css?family=Orbitron:500,700|Raleway:400,700" rel="stylesheet">
+</head>
+<body>
+    <div id="notify-top" class="alert alert-success top-alert">
+        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+        <div id="notify-top-message"></div>
+    </div>
+    <div id="error-top" class="alert alert-danger top-alert">
+        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+        <div id="error-top-message"></div>
+    </div>
+
+    
+    <nav class="navbar navbar-light">
+        <div class="container">
+            <span class="navbar-brand">CountDowns</span>
+            <ul class="nav justify-content-end">
+                <li class="nav-item" id="create-cd-nav"> 
+                    <a class="nav-link" data-toggle="collapse" href="#create-cd-collapse" role="button" aria-expanded="false" aria-controls="create-cd-collapse">Create New Timer</a> 
+                </li>
+                <li class="nav-item" id="login-nav"> 
+                    <a class="nav-link" data-toggle="collapse" href="#login-collapse" role="button" aria-expanded="false" aria-controls="login-collapse">Log in</a> 
+                </li>
+                <li class="nav-item" id="logout-nav"> 
+                    <a class="nav-link" href="" id="logout-btn">Log out</a> 
+                </li>
+                <li class="nav-item" id="account-nav"> 
+                    <a class="nav-link" data-toggle="collapse" href="#account-collapse" role="button" aria-expanded="false" aria-controls="account-collapse">Account</a> 
+                </li>
+                <li class="nav-item" id="signup-nav"> 
+                    <a class="nav-link" data-toggle="collapse" href="#signup-collapse" role="button" aria-expanded="false" aria-controls="signup-collapse">Sign up</a> 
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 offset-lg-6">
+   
+                <div class="container collapse sub" id="signup-collapse">
+                    <input id="name-input" type="text" class="form-control" placeholder="Name">
+                    <input id="email-input" type="text" class="form-control" placeholder="Email">
+                    <input id="pass-input" type="password" class="form-control" placeholder="Password">
+                    <input id="pass-conf-input" type="password" class="form-control" placeholder="Confirm password">
+                    <button class="btn btn-primary text-white border border-white" type="button" id="signup-btn">Sign up</button>
+                </div>
+
+                <div class="container collapse sub" id="login-collapse">
+                    <input id="login-email-input" type="text" class="form-control" placeholder="Email">
+                    <input id="login-pass-input" type="password" class="form-control" placeholder="Password">
+                    <button class="btn btn-primary text-white border border-white" type="button" id="login-btn">Login</button>
+                </div>
+
+                <div class="container collapse sub text-right" id="account-collapse">
+                    <div id="logged-in-name" class="mb-2">Not logged in.</div>
+                    <button class="btn btn-sm btn-danger text-white border border-white" type="button" id="delete-user-btn">Delete my account</button>
+                </div>
+
+                <div class="container collapse sub" id="create-cd-collapse">
+                    <input id="descr-input" type="text" class="form-control" placeholder="Description">
+                    <form action="" class="form-inline">
+                        <div class="row">
+                            <div class="col-xl-6">
+                                <input id="datepicker" placeholder="Date" >
+
+                            </div>
+                            <div class="col-xl-6" id="hh-mm">
+
+                                <select id="hh-select" class="custom-select">
+                                    <option selected value="na">HH</option>
+                                </select>
+                                <select id="mm-select" class="custom-select">
+                                    <option selected value="na">MM</option>
+                                </select>
+                            </div>
+                        </div>
+                    </form>
+                        <button class="btn btn-primary text-white border border-white mt-3" type="button" id="set-new-cd-btn">Set New Timer</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="container main">
+        <div id="cdowns-list"></div>
+    </div>
+
+
+    <div class="footer">
+        <div class="container">
+            with &#x1F495; from <a href="https://www.p-kin.com">p-kin.com</a>
+        </div>
+    </div>
+
+    <div class="cookiewarning">
+            <h4>This site uses cookies</h3>
+            <p>We use cookies to improve the user experience and also to lower data traffic. Cookies do not store any sensitive information.</p>
+            <span id="accept-cookie-btn" class="btn btn-warning">Accept</span>
+    </div>
+
+    <script src="./sources/jquery-3.3.1.min.js"></script>
+    <script src="./sources/bootstrap.bundle.min.js"></script>
+    <script src="./sources/moment.min.js"></script>
+    <script src="./sources/gijgo.min.js"></script>
+    <script src="./sources/crypto-js.min.js"></script>
+    <script src="./modules/user.js"></script>
+    <script src="./modules/cd.js"></script>
+    <script src="./modules/page.js"></script>
+    <script src="./client.js"></script>
+    
+    
+</body>
+</html>

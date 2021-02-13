@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Links.db Admin</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="shortcut icon" type="image/png" href="./favicon.png">
+    <link rel="stylesheet" href="./sources/bootstrap.min.css">
+    <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+    <div class="container text-center p-2">
+        <h3>Ptkin.net Links DB Admin</h3>        
+    </div>
+
+    <div class="container bg-light rounded border border-info p-3 mb-2">
+        <h5>List tables</h5>
+        <div class="btn-group list-btn-grp mb-2" role="group">
+            <button type="button" data-cat="toppicks" class="btn btn-info text-white border border-dark get-list-btn">Top Picks</button>
+            <button type="button" data-cat="courses" class="btn btn-info text-white border border-dark get-list-btn">Courses & Schools</button>
+            <button type="button" data-cat="resources" class="btn btn-info text-white border border-dark get-list-btn">Resources</button>
+            <button type="button" data-cat="docs" class="btn btn-info text-white border border-dark get-list-btn">References, Docs, Tutorials</button>
+            <button type="button" data-cat="frameworks" class="btn btn-info text-white border border-dark get-list-btn">Frameworks, Editors, IDEs</button>
+            <button type="button" data-cat="linux" class="btn btn-info text-white border border-dark get-list-btn">Linux</button>
+        </div>
+        <h5>Search for link by name</h5>
+        <div class="input-group" style="width:35%">
+            <input type="text" class="form-control" placeholder="Link name" id="search-input">
+            <div class="input-group-append">
+                <button class="btn btn-info text-white border border-dark" type="button" id="search-btn">Search</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="container bg-light rounded border border-info p-3 mb-2">
+        <h5>Database entries</h5>
+        <table class="table table-sm">
+            <thead class="bg-info text-light">
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Category</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Link</th>
+                </tr>
+            </thead>
+            <tbody id="list-table">
+                <!--The results will come here-->
+            </tbody>
+        </table>
+    </div>
+
+    <div class="container bg-light rounded border border-info p-3 mb-2">
+        <h5>Add new link to database</h5>
+        <div class="input-group mb-2">
+            <select id="cat-input" class="form-control" style="width:17%">
+                <option data-cat="toppicks" selected>Top Picks</option>
+                <option data-cat="courses">Courses & Schools</option>
+                <option data-cat="resources">Resources</option>
+                <option data-cat="docs">References, Docs, Tutorials</option>
+                <option data-cat="frameworks">Frameworks, Editors, IDEs</option>
+                <option data-cat="linux">Linux</option>
+            </select>
+            <input type="text" class="form-control" placeholder="Name of the site" id="name-input" style="width:30%">
+            <input type="text" class="form-control" placeholder="Link" id="link-input" style="width:30%">
+            <div class="input-group-append">
+                <button class="btn btn-info text-white border border-dark" type="button" id="add-btn">Add</button>
+            </div>
+        </div>
+        <h5>Update a link in the database</h5>
+        <div class="input-group mb-2">
+            <select id="mod-cat-input" class="form-control" style="width:17%">
+                <option data-cat="toppicks" selected>Top Picks</option>
+                <option data-cat="courses">Courses & Schools</option>
+                <option data-cat="resources">Resources</option>
+                <option data-cat="docs">References, Docs, Tutorials</option>
+                <option data-cat="frameworks">Frameworks, Editors, IDEs</option>
+                <option data-cat="linux">Linux</option>
+            </select>
+            <input type="number" class="form-control" placeholder="ID" id="mod-id-input" style="width:5%">
+            <input type="text" class="form-control" placeholder="Name of the site" id="mod-name-input" style="width:25%">
+            <input type="text" class="form-control" placeholder="Link" id="mod-link-input" style="width:25%">
+            <div class="input-group-append">
+                <button class="btn btn-info text-white border border-dark" type="button" id="mod-btn">Update</button>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="col">
+                <h5>Delete a link by table and ID</h5>
+                <div class="input-group" style="width:80%">
+                    <select id="del-cat-input" class="form-control" style="width:50%">
+                        <option data-cat="toppicks" selected>Top Picks</option>
+                        <option data-cat="courses">Courses & Schools</option>
+                        <option data-cat="resources">Resources</option>
+                        <option data-cat="docs">References, Docs, Tutorials</option>
+                        <option data-cat="frameworks">Frameworks, Editors, IDEs</option>
+                        <option data-cat="linux">Linux</option>
+                    </select>
+                    <input type="number" class="form-control" placeholder="ID" id="delete-input" style="width:20%">
+                    <div class="input-group-append">
+                        <button class="btn btn-info text-white border border-dark" type="button" id="delete-btn">Delete</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <p class="font-weight-bold mb-2">Please enter your password to use these functions</p>
+                <div class="input-group" style="width:50%">
+                    <input type="password" class="form-control" placeholder="password" id="password-input">
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="container bg-light rounded border border-info p-3 mb-2">
+            <h5>Download a copy of the database</h5>
+            <button class="btn btn-info text-white border border-dark" type="button" id="download-btn">Download database file</button>
+    </div>
+
+
+    <script src="./sources/jquery-3.3.1.min.js"></script>
+    <script src="./sources/bootstrap.bundle.min.js"></script>
+    <script src="./client.js"></script>
+</body>
+</html>

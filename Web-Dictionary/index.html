@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="shortcut icon" type="image/png" href="./favicon.png">
+    <meta name="mobile-web-app-capable" content="yes">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="./sources/bootstrap.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Nunito:300|Cinzel:700" rel="stylesheet">
+    <!-- jQuery UI CSS -->
+    <link rel="stylesheet" href="./sources/jquery-ui.min.css">
+    <!-- FontAwesome CSS -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+    
+    <!-- MY STYLES -->
+    <link rel="stylesheet" href="./styles.css">
+    
+    <title>MyDictionary</title>
+    
+</head>
+<body>
+    <div id="dict-wrapper" class="container text-center fadeIn">
+        <div class="title">Korean - Hungarian dictionary</div>
+        <input class="form-control" type="text" id="dict-input" placeholder="Enter a Korean or Hungarian word here">
+        <div class="custom-control custom-checkbox text-right">
+            <input type="checkbox" class="custom-control-input" id="autocomplete-check" checked>
+            <label class="custom-control-label" for="autocomplete-check">Autocomplete</label>    
+        </div>
+        <button class="btn" type="button" id="dict-submit">Search</button>
+        <div class="text-left" id="search-results"> </div>
+    </div>
+    
+    <div id="back-to-top">
+        <i class="fas fa-angle-double-up fa-2x"></i>
+    </div>
+    
+    <div class="footer">
+        with &#x1F495; from <a href="https://www.p-kin.com">p-kin.com</a>
+    </div> 
+    
+    <!-- JQUERY, JQUERY UI, BOOTSTRAP, POPPER -->
+    <script src="./sources/jquery-3.3.1.min.js"></script>
+    <script src="./sources/bootstrap.bundle.min.js"></script>
+    <script src="./sources/jquery-ui.min.js"></script>
+    
+    <!-- MY SCRIPT -->
+    <script src="./script.js"></script>
+
+</body>
+</html>

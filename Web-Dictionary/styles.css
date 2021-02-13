@@ -1,0 +1,182 @@
+body {
+  background-image: url(./sources/hexellence_@2X.png);
+  font-family: Georgia, serif;
+  font-weight: 300;
+}
+
+#dict-wrapper {
+  max-width: 700px;
+  min-height: 95vh;
+  padding: 1rem;
+}
+@media (min-width: 576px) {
+  #dict-wrapper {
+    padding: 3rem;
+  }
+}
+
+.title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  margin-top: 2rem;
+  font-family: "Cinzel", serif;
+}
+@media (min-width: 576px) {
+  .title {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+  }
+}
+
+#dict-input {
+  background-color: rgba(255, 255, 255, 0.65);
+  box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.4);
+  border-bottom: 4px solid rgba(0, 0, 255, 0.6);
+  border-radius: 0;
+}
+
+#dict-submit {
+  background-color: rgba(0, 0, 255, 0.6);
+  color: white;
+  width: 150px;
+  font-weight: bold;
+  border: 1px solid rgba(255, 255, 255, 0.65);
+  box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.4);
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+}
+#dict-submit:hover {
+  background-color: rgba(0, 0, 255, 0.795);
+}
+
+.footer {
+  text-align: center;
+  height: 5vh;
+  min-height: 40px;
+  background-color: rgba(0, 0, 255, 0.6);
+  padding: 0.5rem;
+  color: white;
+  text-shadow: 2px 2px 2px #5680e9;
+  border-top: 1px solid white;
+}
+.footer a {
+  color: blue;
+  text-shadow: 2px 2px 2px rgba(255, 255, 255, 0.65);
+}
+
+/*************************************************
+*                  RESULT CARDS  
+*/
+.results-wrapper {
+  padding: 0rem;
+}
+@media (min-width: 576px) {
+  .results-wrapper {
+    padding: 2rem;
+  }
+}
+.results-wrapper .result-box {
+  background: rgba(255, 255, 255, 0.65);
+  margin-bottom: 0.5rem;
+  box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.4);
+  border-bottom: 4px solid rgba(0, 0, 255, 0.6);
+}
+.results-wrapper .result-box .result-row {
+  padding: 0.8rem;
+}
+.results-wrapper .result-box .row-one {
+  border-bottom: 1px solid rgba(0, 0, 255, 0.6);
+  font-weight: bold;
+}
+.results-wrapper .result-box .row-one sup {
+  color: rgba(0, 0, 255, 0.6);
+  position: relative;
+  top: -0.7rem;
+  margin-left: -0.2rem;
+  margin-right: 0.3rem;
+  opacity: 0.3;
+}
+.results-wrapper .result-box .row-two {
+  padding-left: 2.5rem;
+  padding-right: 1rem;
+  font-family: "Trebuchet MS", Helvetica, sans-serif;
+}
+
+/*************************************************
+*                   CHECKBOX  
+*/
+.custom-checkbox label {
+  cursor: pointer;
+  font-family: "Nunito", sans-serif;
+  font-weight: 400;
+}
+
+.custom-control-label:before {
+  background-color: rgba(255, 255, 255, 0.65);
+  border: 1px solid rgba(0, 0, 255, 0.6);
+}
+
+.custom-checkbox .custom-control-input:checked ~ .custom-control-label::before {
+  background-color: rgba(0, 0, 255, 0.6) !important;
+  border: 1px solid rgba(0, 0, 0, 0.4);
+}
+
+.custom-checkbox .custom-control-input:checked:focus ~ .custom-control-label::before {
+  box-shadow: 0 0 0 1px #fff, 0 0 0 0.2rem rgba(0, 0, 0, 0.25);
+}
+
+.custom-checkbox .custom-control-input:focus ~ .custom-control-label::before {
+  box-shadow: 0 0 0 1px #fff, 0 0 0 0.2rem rgba(0, 0, 0, 0.25);
+}
+
+.custom-checkbox .custom-control-input:active ~ .custom-control-label::before {
+  background-color: rgba(255, 255, 255, 0.65);
+}
+
+/*************************************************
+*                 AUTOCOMPLETE
+*/
+.ui-autocomplete {
+  max-height: 200px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  border-radius: 5px;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+  padding: 4px 4px;
+  font-family: Georgia, serif;
+  background-color: #8baaff;
+}
+
+.ui-menu-item .ui-state-active {
+  color: #ffffff;
+  text-decoration: none;
+  background-color: rgba(0, 0, 255, 0.6) !important;
+  border: none;
+}
+
+/*************************************************
+*                 BACK TO TOP 
+*/
+#back-to-top {
+  cursor: pointer;
+  text-align: center;
+  width: 4rem;
+  height: 4rem;
+  padding-top: 0.6rem;
+  border-radius: 50%;
+  border: 3px solid rgba(0, 0, 255, 0.6);
+  background: rgba(255, 255, 255, 0.65);
+  color: rgba(0, 0, 255, 0.6);
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+  z-index: 99;
+  display: none;
+}
+#back-to-top:hover {
+  color: rgba(0, 0, 255, 0.795);
+  border: 3px solid rgba(0, 0, 255, 0.795);
+}
+
+/*# sourceMappingURL=styles.css.map */

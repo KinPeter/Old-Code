@@ -1,0 +1,163 @@
+{
+  "common": {
+    "language": "Language",
+    "languages": {
+      "en": "English",
+      "hu": "Hungarian"
+    },
+    "tabTitles": {
+      "auth": "Welcome",
+      "myTrips": "My Trips",
+      "profile": "Profile",
+      "editor": "Editor"
+    },
+    "defaultErrorMessage": "An error occurred during your request. Please try again later or contact the administrator."
+  },
+  "auth": {
+    "login": "Log in",
+    "signup": "Sign up",
+    "messages": {
+      "loginSuccess": "Successfully logged in!",
+      "badCredentials": "Could not log you in. Please check your credentials.",
+      "tokenRefreshFailed": "Could not refresh your access token.",
+      "logOut": "See you! Until next time..."
+    },
+    "c": {
+      "common": {
+        "email": "Email",
+        "password": "Password",
+        "confirmPassword": "Confirm password",
+        "emailRequired": "Email is required",
+        "invalidEmail": "Invalid email format",
+        "passwordRequired": "Password is required",
+        "passwordsDoNotMatch": "Passwords do not match",
+        "passwordMustBeLonger": "Password must be at least {{char}} characters"
+      },
+      "login": {
+        "title": "Log in to TripPlanner",
+        "subtitle": "You just have to enter the usual stuff",
+        "forgotPassword": "Forgot your password?",
+        "clickHere": "Click here!"
+      },
+      "signup": {
+        "title": "Sign up for TripPlanner",
+        "subtitle": "By just filling in the form below",
+        "displayName": "Display name",
+        "displayNameRequired": "Name is required"
+      },
+      "forgotPassword": {
+        "title": "Forgot your password?",
+        "subtitle": "Enter your email address below, and click send to receive further instructions on how to reset your password.",
+        "send": "Send"
+      },
+      "resetPassword": {
+        "title": "Reset your password",
+        "yourEmail": "Your email: ",
+        "subtitle": "Please choose a new password below.",
+        "reset": "Reset"
+      }
+    }
+  },
+  "user": {
+    "messages": {
+      "emailRegistered": "It seems that this email is already registered.",
+      "signupSuccess": "Thank you! You can now log in with your credentials.",
+      "fetchFailed": "Could not fetch your user data.",
+      "updateFailed": "Could not update your profile.",
+      "updateSuccess": "Profile updated successfully!",
+      "passwordResetEmailNotSent": "Could not send the password reset email. Please try again later or contact us.",
+      "passwordResetEmailSent": "Please check your inbox for the password reset email!",
+      "resetPasswordFailed": "Could not update your password. Please try again or contact us.",
+      "resetPasswordSuccess": "New password saved. Now you can log in with your new credentials!",
+      "deleteAccountFailed": "Could not delete your account. Please try again or contact us.",
+      "deleteAccountSuccess": "Account deleted. Sorry to see you go... :("
+    }
+  },
+  "accountMenu": {
+    "tooltip": "Account",
+    "myProfile": "My profile",
+    "logout": "Log out"
+  },
+  "myTrips": {
+    "open": "Open",
+    "more": "More",
+    "edit": "Edit",
+    "duplicate": "Duplicate",
+    "delete": "Delete",
+    "printView": "Print view",
+    "filters": {
+      "searchLabel": "Search",
+      "searchPlaceholder": "Search for title, country or year",
+      "futureOnly": "Future trips only",
+      "orderBy": "Order by",
+      "alphaAsc": "Alphabetically, asc.",
+      "alphaDesc": "Alphabetically, desc.",
+      "dateAsc": "Date, asc.",
+      "dateDesc": "Date, desc."
+    },
+    "noTripsFound": "Sorry, no trips found. Try changing the search criteria or create a new trip!",
+    "createNew": "Create new trip",
+    "editTripDialog": {
+      "createNewTitle": "Create new trip",
+      "createNewSubtitle": "Choose a title, add some countries, upload a cover image and set the dates for your trip.",
+      "editTitle": "Edit trip",
+      "editSubtitle": "You can only change the title, countries and the cover image here. If you would modify the dates, please do so in the editor.",
+      "save": "Save",
+      "cancel": "Cancel",
+      "title": "Trip title",
+      "titleRequired": "Title is required",
+      "titleLength": "Title must be between 3 and 50 characters",
+      "countries": "Countries",
+      "countriesHint": "Enter country names separated by a comma",
+      "countriesRequired": "Please add at least one country",
+      "coverImage": "Cover image",
+      "dates": "Travel date",
+      "datesInvalid": "Please enter valid dates"
+    },
+    "duplicateTripDialog": {
+      "dialogTitle": "Duplicate trip",
+      "dialogSubtitle": "Clone your trip in case you want to make different plans. (Please note that the cover image will not be copied.)",
+      "copyOf": "Copy of",
+      "title": "Trip title",
+      "titleRequired": "Title is required",
+      "titleLength": "Title must be between 3 and 50 characters",
+      "cancel": "Cancel",
+      "duplicate": "Duplicate"
+    },
+    "messages": {
+      "tripCreated": "Trip created successfully",
+      "tripDeleted": "Trip deleted",
+      "tripDeleteError": "Could not delete your trip. Please try again later or contact us.",
+      "tripUpdated": "Trip updated",
+      "tripUpdateError": "Could not update your trip. Please try again later or contact us.",
+      "deleteConfirmTitle": "Are you sure?",
+      "deleteConfirmBody": "Do you really want to delete the trip '{{title}}'?"
+    }
+  },
+  "imageUploader": {
+    "upload": "Upload image",
+    "change": "Change image",
+    "remove": "Remove image",
+    "dragOrClick": "Drag an image here or click upload",
+    "invalidType": "Invalid file type, only jpg and png are allowed.",
+    "invalidSize": "The file must not be larger than {{maxSize}}MB.",
+    "invalidDimensions": "The image must be minimum {{minWidth}}x{{minHeight}} pixels."
+  },
+  "profile": {
+    "stats": {
+      "title": "{{name}}'s profile",
+      "memberSince": "Member since",
+      "numberOfTrips": "Number of trips"
+    },
+    "changePassword": {
+      "title": "Change your password",
+      "subtitle": "Please choose a new password below.",
+      "change": "Change password",
+      "newPassword": "New password",
+      "confirmPassword": "Confirm new password",
+      "passwordRequired": "Password is required",
+      "passwordsDoNotMatch": "Passwords do not match",
+      "passwordMustBeLonger": "Password must be at least {{char}} characters"
+    }
+  }
+}

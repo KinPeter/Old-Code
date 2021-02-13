@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>VocabCards</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="mobile-web-app-capable" content="yes">
+    <link rel="shortcut icon" type="image/png" href="./favicon.png">
+    <link rel="stylesheet" href="./sources/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Noto+Serif+KR:400,600" rel="stylesheet">
+    <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+    <div id="error-container">
+        <div id="update-error">Error updating list on the server.</div>
+    </div>
+    <div class="loading">Loading...</div>
+    <div class="container">
+        <div class="list-counter"></div>
+        <div id="hun-word"></div>
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="mycard"><div id="card0"></div></div>
+                <div class="mycard"><div id="card1"></div></div>
+            </div>
+            <div class="col-sm-6">
+                <div class="mycard"><div id="card2"></div></div>
+                <div class="mycard"><div id="card3"></div></div>
+            </div>
+        </div>
+        <div class="buttons">
+            <div class="button" id="change-list">Difficult words (<span id="difficult-counter"></span>)</div>
+            <div class="button" id="save-progress">Save progress</div>
+            <div class="button" id="reset-cards">Reset cards</div>
+        </div>
+    </div>    
+    <div class="footer">
+        with &#x1F495; from <a href="https://www.p-kin.com">p-kin.com</a>
+    </div>    
+    <script src="./sources/jquery-3.3.1.min.js"></script>
+    <script src="./sources/bootstrap.bundle.min.js"></script>
+    <script src="./sources/crypto-js.min.js"></script>
+    <!-- <script src="./modules/gsheet.js"></script>
+    <script src="./modules/ls.js"></script>
+    <script src="./modules/lists.js"></script>
+    <script src="./modules/cards.js"></script>
+    <script src="./modules/page.js"></script>
+    <script src="./app.js"></script> -->
+    <script src="./app.bundle.js"></script>
+</body>
+</html>

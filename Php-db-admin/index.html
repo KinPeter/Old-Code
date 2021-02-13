@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Links.db Admin</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="shortcut icon" type="image/png" href="./client/favicon.png">
+    <link rel="stylesheet" href="./sources/bootstrap.min.css">
+</head>
+<body>
+    <div class="container text-center p-2">
+        <h3>My Links DB Admin</h3>        
+    </div>
+
+    <div class="container bg-light rounded border border-info p-3 mb-2">
+        <h5>List by tags</h5>
+        <div class="tag-buttons text-center mb-2">
+            <button type="button" data-tag="api" class="mb-1 btn btn-info text-white border border-dark get-list-btn">API</button>
+            <button type="button" data-tag="css" class="mb-1 btn btn-info text-white border border-dark get-list-btn">CSS</button>
+            <button type="button" data-tag="design" class="mb-1 btn btn-info text-white border border-dark get-list-btn">Design</button>
+            <button type="button" data-tag="docs" class="mb-1 btn btn-info text-white border border-dark get-list-btn">Docs</button>
+            <button type="button" data-tag="editors" class="mb-1 btn btn-info text-white border border-dark get-list-btn">Editors</button>
+            <button type="button" data-tag="frameworks" class="mb-1 btn btn-info text-white border border-dark get-list-btn">Frameworks</button>
+            <button type="button" data-tag="html" class="mb-1 btn btn-info text-white border border-dark get-list-btn">HTML</button>
+            <button type="button" data-tag="java" class="mb-1 btn btn-info text-white border border-dark get-list-btn">Java</button>
+            <button type="button" data-tag="javascript" class="mb-1 btn btn-info text-white border border-dark get-list-btn">JavaScript</button>
+            <button type="button" data-tag="linux" class="mb-1 btn btn-info text-white border border-dark get-list-btn">Linux</button>
+            <button type="button" data-tag="onlinecourses" class="mb-1 btn btn-info text-white border border-dark get-list-btn">Online Courses</button>
+            <button type="button" data-tag="onlinetools" class="mb-1 btn btn-info text-white border border-dark get-list-btn">Online Tools</button>
+            <button type="button" data-tag="package" class="mb-1 btn btn-info text-white border border-dark get-list-btn">Package</button>
+            <button type="button" data-tag="python" class="mb-1 btn btn-info text-white border border-dark get-list-btn">Python</button>
+            <button type="button" data-tag="resources" class="mb-1 btn btn-info text-white border border-dark get-list-btn">Resources</button>
+            <button type="button" data-tag="school" class="mb-1 btn btn-info text-white border border-dark get-list-btn">School</button>
+            <button type="button" data-tag="security" class="mb-1 btn btn-info text-white border border-dark get-list-btn">Security</button>
+            <button type="button" data-tag="sql" class="mb-1 btn btn-info text-white border border-dark get-list-btn">SQL</button>
+            <button type="button" data-tag="tools" class="mb-1 btn btn-info text-white border border-dark get-list-btn">Tools</button>
+            <button type="button" data-tag="tutorials" class="mb-1 btn btn-info text-white border border-dark get-list-btn">Tutorials</button>
+            
+        </div>
+        <h5>Search for link by name</h5>
+        <div class="input-group" style="width:35%">
+            <input type="text" class="form-control" placeholder="Link name" id="search-input">
+            <div class="input-group-append">
+                <button class="btn btn-info text-white border border-dark" type="button" id="search-btn">Search</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="container bg-light rounded border border-info p-3 mb-2">
+        <h5>Database entries</h5>
+        <table class="table table-sm">
+            <thead class="bg-info text-light">
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Link</th>
+                </tr>
+            </thead>
+            <tbody id="list-table">
+                <!--The results will come here-->
+            </tbody>
+        </table>
+    </div>
+
+    <div class="container bg-light rounded border border-info p-3 mb-2">
+        <h5>Get all tags for a link</h5>
+        <div class="form-row">
+            <div class="col-6">
+                <div class="input-group mb-2">
+                    <input type="number" class="form-control" placeholder="ID" id="gettags-id-input" style="width:10%">
+                    <input type="text" class="form-control" placeholder="Name of the site" id="gettags-name-input" style="width:70%">
+                    <div class="input-group-append">
+                        <button class="btn btn-info text-white border border-dark" type="button" id="gettags-btn">Get</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-6" id="gettag-tags">
+
+            </div>
+        </div>
+        <h5>Add new link to database</h5>
+        <div class="input-group mb-2">
+            <input type="text" class="form-control" placeholder="Name of the site" id="name-input" style="width:30%">
+            <input type="text" class="form-control" placeholder="Link" id="link-input" style="width:30%">
+            <div class="input-group-append">
+                <button class="btn btn-info text-white border border-dark" type="button" id="add-btn">Add</button>
+            </div>
+        </div>
+        <h5>Add a new tag for a link</h5>
+        <div class="input-group mb-2">
+            <input type="number" class="form-control" placeholder="ID" id="addtag-id-input" style="width:10%">
+            <input type="text" class="form-control" placeholder="Name of the site" id="addtag-name-input" style="width:50%">
+            <select id="addtag-tag-input" class="form-control" style="width:20%">
+                <option class="text-muted" value="0" selected>Choose tag...</option>
+                <option data-tag="api">API</option>
+                <option data-tag="css">CSS</option>
+                <option data-tag="design">Design</option>
+                <option data-tag="docs">Docs</option>
+                <option data-tag="editors">Editors</option>
+                <option data-tag="frameworks">Frameworks</option>
+                <option data-tag="html">HTML</option>
+                <option data-tag="java">Java</option>
+                <option data-tag="javascript">JavaScript</option>
+                <option data-tag="linux">Linux</option>
+                <option data-tag="onlinecourses">Online Courses</option>
+                <option data-tag="onlinetools">Online Tools</option>
+                <option data-tag="package">Package</option>
+                <option data-tag="python">Python</option>
+                <option data-tag="resources">Resources</option>
+                <option data-tag="school">School</option>
+                <option data-tag="security">Security</option>
+                <option data-tag="sql">SQL</option>
+                <option data-tag="tools">Tools</option>
+                <option data-tag="tutorials">Tutorials</option>                        
+            </select>
+            <div class="input-group-append">
+                <button class="btn btn-info text-white border border-dark" type="button" id="addtag-btn">Add Tag</button>
+            </div>            
+        </div>
+        <h5>Update a link in the database</h5>
+        <div class="input-group mb-2">
+            <input type="number" class="form-control" placeholder="ID" id="mod-id-input" style="width:5%">
+            <input type="text" class="form-control" placeholder="Name of the site" id="mod-name-input" style="width:25%">
+            <input type="text" class="form-control" placeholder="Link" id="mod-link-input" style="width:25%">
+            <div class="input-group-append">
+                <button class="btn btn-info text-white border border-dark" type="button" id="mod-btn">Update</button>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="col-4">
+                <h5>Delete a link by ID</h5>
+                <div class="input-group" style="width:70%">
+                    <input type="number" class="form-control" placeholder="ID" id="delete-input" style="width:20%">
+                    <div class="input-group-append">
+                        <button class="btn btn-info text-white border border-dark" type="button" id="delete-btn">Delete</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-4">
+                <h5>Delete all tags by ID</h5>
+                <div class="input-group" style="width:70%">
+                    <input type="number" class="form-control" placeholder="ID" id="delete-tags-input" style="width:20%">
+                    <div class="input-group-append">
+                        <button class="btn btn-info text-white border border-dark" type="button" id="delete-tags-btn">Delete</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-4">
+                <p class="font-weight-bold mb-2">Please enter your password</p>
+                <div class="input-group" style="width:70%">
+                    <input type="password" class="form-control" placeholder="Password" id="password-input">
+                </div>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="col-2 offset-10">
+                <button class="btn btn-info text-white border border-dark float-right" type="button" id="clear-btn" style="margin-top: 2rem;">Clear all fields</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="container bg-light rounded border border-info p-3 mb-2">
+            <h5>Export the database into CSV file</h5>
+            <button class="btn btn-info text-white border border-dark" type="button" id="download-btn">Download CSV file</button>
+    </div>
+
+
+    <script src="./sources/jquery-3.3.1.min.js"></script>
+    <script src="./sources/bootstrap.bundle.min.js"></script>
+    <script src="./client/client.js"></script>
+</body>
+</html>

@@ -1,0 +1,8 @@
+<h2>Try Autocomplete</h2>
+
+<app-autocomplete
+  [wordlist]="wordlist"
+  (hasSearchTerm)="onHasSearchTerm($event)">
+</app-autocomplete>
+
+<main *ngIf="result">The winner is: {{ result }}</main>
