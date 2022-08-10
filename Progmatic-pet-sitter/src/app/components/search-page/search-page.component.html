@@ -1,0 +1,10 @@
+<section class="page-content">
+	<div class="container">
+
+		<div class="job_listings">
+      <app-search-data (eventSearched)="eventSearchedData($event)" (searchPending)="eventSearchPending($event)"></app-search-data>
+      <app-search-list [sitters]="searchedSitters" [isLoading]="searchPending"></app-search-list>
+    </div>
+
+  </div>
+</section>

@@ -1,0 +1,45 @@
+<div class="calendar">
+    <div class="overlay" *ngIf="showConfirmDialog || showBookingSuccessAlert || showBookingErrorAlert || showNotLoggedInAlert"></div>
+    <div class="confirm-dialog" *ngIf="showConfirmDialog">
+        <div class="call-to-action">
+            <p>Kérlek erősítsd meg, hogy foglalást szeretnél erre a napra: <br> <b>{{ chosenDay.date }}</b></p>
+            <div class="buttons">
+                <app-spinner *ngIf="showConfirmDialogSpinner"></app-spinner>
+                <button class="btn btn-info btn-sm" (click)="cancelSendingCloseDialog()">Mégsem</button>
+                <button class="btn btn-success btn-sm" (click)="confirmSendBooking()">Mehet</button>
+            </div>
+        </div>
+    </div>
+    <div class="alert-box" *ngIf="showBookingSuccessAlert || showBookingErrorAlert || showNotLoggedInAlert">
+        <div class="alert booking-alert alert-success" *ngIf="showBookingSuccessAlert">
+            <i class="fa fa-check-circle"></i>
+            Foglalási igényedet továbbítottuk, a KiVi e-mailen fog nálad jelentkezni.
+        </div>
+        <div class="alert booking-alert alert-danger" *ngIf="showBookingErrorAlert">
+            <i class="fa fa-exclamation-circle"></i>
+            A foglalási igény elküldése sikertelen. Kérjük próbáld újra később.
+        </div>
+        <div class="alert booking-alert alert-danger" *ngIf="showNotLoggedInAlert">
+            <i class="fa fa-exclamation-circle"></i>
+            A foglalási igény küldéséhez be kell jelentkezned!
+        </div>
+    </div>
+    <div class="weeks">
+        <div class="day day-of-week">H</div>
+        <div class="day day-of-week">K</div>
+        <div class="day day-of-week">Sze</div>
+        <div class="day day-of-week">Cs</div>
+        <div class="day day-of-week">P</div>
+        <div class="day day-of-week">Szo</div>
+        <div class="day day-of-week">V</div>
+    </div>
+    <div class="hr"></div>
+    <div class="weeks">
+        <div class="day" 
+            *ngFor="let day of availabilities" 
+            [ngClass]="getMyClass(day)"
+            (click)="clickMe(day)">
+            <div>{{ day.availability !== 'BLANK' ? (day.date | calendarDate) : null }}</div>
+        </div>
+    </div>
+</div>

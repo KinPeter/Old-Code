@@ -1,0 +1,43 @@
+ul {
+    list-style: none;
+    padding: 0;
+    li {
+        margin-bottom: 5px;
+        .mat-raised-button {
+            min-width: 60px;
+            line-height: 30px;
+            padding: 0 8px;
+        }
+    }
+}
+.tag-span {
+    margin-right: 5px;
+    padding: 2px 5px;
+    border-radius: 5px;
+    background-color: #d3d3d37d;
+}
+.actions {
+    padding: .5rem 1rem;
+    button[mat-mini-fab] {
+        width: 30px;
+        height: 30px;
+        margin-right: 5px;
+        mat-icon {
+            font-size: 17px;
+            position: relative;
+            top: -2px;
+            color: white;
+        }
+    }
+}
+button[mat-fab] {
+    position: absolute;
+    right: 1rem;
+    mat-icon {
+        color: white;
+        position: relative;
+        top: -7px;
+        left: -5px;
+        font-size: 36px;
+    }
+}

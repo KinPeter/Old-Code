@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="shortcut icon" type="image/png" href="./images/favicon.png">
+    <!-- Android: Should allow full screen if link is added to home screen -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="./sources/bootstrap.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Cabin+Condensed:400,700|BenchNine:300,400" rel="stylesheet">
+    <!-- FontAwesome CSS -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+    <!-- MY STYLES -->
+    <link rel="stylesheet" href="./css/styles.css">
+    <title>Notes</title>
+</head>
+<body>
+    <div class="container col-md-6">
+        <div class="box box-notes">
+            <div class="box-title">Notes</div>
+            <div class="notes-wrapper" id="notes-list"></div>
+        </div>
+        <div class="box">
+            <div class="add-note-wrapper">
+                <textarea class="form-control" id="note-textarea" rows="3" maxlength="300" placeholder="Add new note here" data-id="0"></textarea>
+                <span class="add-btn add-href"><i class="fas fa-code"></i></span>
+                <span class="add-btn add-br"><i class="fas fa-level-down-alt"></i></span>
+                <span class="add-btn save"><i class="fas fa-check-square"></i></span>
+            </div>
+        </div>
+        <div class="box">
+            <input type="password" class="form-control" id="password" placeholder="Enter your password">
+        </div>
+    </div>
+
+    <!-- Modal for site messages -->
+    <div class="modal" id="message" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Message</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p id="message-text">Modal body text goes here.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="./sources/jquery-3.3.1.min.js"></script>
+    <script src="./sources/bootstrap.bundle.min.js"></script>
+    <script src="./sources/moment.min.js"></script>
+    <script src="./js/notes.js"></script>
+    <script src="./js/start.js"></script>
+</body>
+</html>

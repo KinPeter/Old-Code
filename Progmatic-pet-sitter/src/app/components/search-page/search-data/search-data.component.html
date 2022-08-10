@@ -1,0 +1,45 @@
+<div class="job_filters">
+
+  <div class="row search_jobs">
+    <div class="search_keywords col-md-3">
+      <label for="search_keywords">Keywords</label>
+      <input type="text" name="search_keywords" id="search_keywords" placeholder="Összes KiVi" class="form-control"
+          [(ngModel)]="searchDataFromMainPage.name"/>
+    </div>
+
+    <div class="search_location col-md-2">
+      <label for="search_location">Location</label>
+      <input type="text" name="search_location" id="search_location" placeholder="Irányítószám" class="form-control"
+      [(ngModel)]="searchDataFromMainPage.postalCode"
+      [ngClass]="{'is-invalid': fieldValidator.validatePostcodeInComponent(isPostcodeValid, searchDataFromMainPage.postalCode)}"/>
+      <span class="invalid-feedback"
+          *ngIf="fieldValidator.validatePostcodeInComponent(isPostcodeValid, searchDataFromMainPage.postalCode)">
+          Kérlek, valós irányítószámot adj meg!
+      </span>
+    </div>
+
+    <div class="search_place col-md-4">
+      <label>Service</label>
+      <span class="select-style">
+        <select [(ngModel)]="searchDataFromMainPage.place" class="form-control">
+          <option *ngFor="let place of placeTypes" [ngValue]="place.key">{{place.value}}</option>
+        </select>
+      </span>
+    </div>
+
+    <div class="search_type col-md-3">
+      <label>Service</label>
+      <span class="select-style">
+        <select [(ngModel)]="searchDataFromMainPage.petType" class="form-control">
+          <option *ngFor="let pet of petTypes" [ngValue]="pet.key">{{pet.value}}</option>
+        </select>
+      </span>
+    </div>
+
+    <div class="search_submit col-md-2">
+      <label>Submit</label>
+      <button class="btn btn-block btn-primary" (click)="search()">Keresés</button>
+    </div>
+  </div>
+
+</div>

@@ -1,0 +1,16 @@
+<mat-toolbar color="primary">
+    <span><img src="/assets/favicon.png" alt="Logo" routerLink="/" style="cursor: pointer"></span>
+    <div fxFlex fxLayout fxLayoutAlign="flex-end">
+        <ul fxLayout *ngIf="isLoggedIn">
+            <li><button mat-button routerLink="/tiles">Tiles</button></li>
+            <li><button mat-button routerLink="/links">Links</button></li>
+            <li><button mat-icon-button (click)="logout()"><mat-icon>exit_to_app</mat-icon></button></li>
+        </ul>
+    </div>
+</mat-toolbar>
+<mat-spinner 
+    *ngIf="loading" 
+    color="accent" 
+    diameter="40">
+</mat-spinner>
+<router-outlet></router-outlet>

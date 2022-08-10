@@ -1,0 +1,58 @@
+
+.login-modal {
+    position: fixed;
+    z-index: 2;
+    .overlay, .modal-body {
+        position: fixed;
+    }
+    .overlay {
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background-color: rgba(0,0,0,.7);
+    }
+    .modal-body {
+        top: 70px;
+        right: 1rem;
+        width: calc(100vw - 4rem);
+        max-width: 350px;
+        height: auto;
+        padding: 1rem;
+        background-color: #fff;
+
+        form {
+            input, label, textarea, button, select {
+                display: block;
+            }
+            label {
+                color: $blue2;
+                margin-bottom: .5rem;
+            }
+            input, select {
+                outline: none;
+                border: none;
+                border-bottom: 2px solid $blue2;
+                width: 100%;
+                margin-bottom: 1rem;
+                padding-left: 0.5rem;  
+                &:focus {
+                    background: rgba(35, 126, 187, 0.1);
+                }
+            }
+            button {
+                position: relative;
+                background-color: $blue2;
+                color: #fff;
+                border: none;
+                padding: 0.75rem 1.5rem;
+                float: right;
+                z-index: 1;
+                margin-left: 0.5rem;
+                &:disabled {
+                    background-color: #b8b8b8;
+                }                
+            }
+        }
+    }
+}

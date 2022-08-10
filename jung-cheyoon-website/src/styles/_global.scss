@@ -1,0 +1,49 @@
+* {
+  box-sizing: border-box;
+  font-family: var(--font-sans-serif);
+}
+
+body {
+  --font-sans-serif: 'Montserrat';
+  // --font-serif: 'Martel';
+
+  line-height: 1.5;
+  margin: 0;
+  padding: 52px 0 0;
+  background: var(--background-color);
+  color: var(--text-color);
+
+  @media (min-width: 912px) {
+    padding: 84px calc(84px + 0.8rem) 52px;
+  }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-sans-serif), sans-serif;
+  font-weight: normal;
+  color: var(--text-color-light);
+  margin-top: 0;
+}
+
+p,
+span,
+li,
+ul,
+ol {
+  font-family: var(--font-sans-serif), sans-serif;
+  margin-top: 0;
+}
+
+strong {
+  font-weight: 700;
+}
+
+hr {
+  border-color: var(--text-color-light);
+  margin: 1.5rem 0;
+}

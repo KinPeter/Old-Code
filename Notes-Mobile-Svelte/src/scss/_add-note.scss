@@ -1,0 +1,78 @@
+.open-add-note {
+    position: fixed;
+    bottom: 1rem;
+    right: 1rem;
+    height: 60px;
+    width: 60px;
+    border-radius: 50%;
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 3;
+    i {
+        color: $blue3;
+        font-size: 2rem;
+        margin-top: 5px;
+    }
+}
+
+.add-note-modal {
+    position: fixed;
+    z-index: 2;
+    .overlay, .add-note {
+        position: fixed;
+    }
+    .overlay {
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background-color: rgba(0,0,0,.7);
+    }
+    .add-note {
+        top: 70px;
+        right: 1rem;
+        width: calc(100vw - 4rem);
+        max-width: 350px;
+        height: auto;
+        padding: 1rem;
+        background-color: #fff;
+
+        form {
+            input, label, textarea, button, select {
+                display: block;
+            }
+            input, select {
+                outline: none;
+                border: none;
+                margin-bottom: 1rem;
+                &:focus {
+                    background: rgba(35, 126, 187, 0.1);
+                }
+            }
+            textarea {
+                @extend input;
+                width: calc(100% - 1rem);
+                border: 2px solid $blue2;
+                font-family: inherit;
+                font-size: 1.1rem;
+                padding: .3rem;
+            }
+            button {
+                position: relative;
+                background-color: $blue2;
+                color: #fff;
+                border: none;
+                padding: 0.75rem 1.5rem;
+                float: right;
+                z-index: 1;
+                margin-left: 0.5rem;
+                &:disabled {
+                    background-color: #b8b8b8;
+                }                
+            }
+        }
+    }
+
+}

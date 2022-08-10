@@ -1,0 +1,133 @@
+@import '../../../variables.scss';
+
+.calendar {
+    margin: 3rem .5rem;
+    position: relative;
+    .weeks {
+        display: flex;
+        flex-wrap: wrap;
+        .day {
+            flex-basis: calc(100% / 7);
+            position: relative;
+            box-sizing: border-box;
+            border: 2px solid white;
+            border-radius: 5px;
+            height: 40px;
+            box-shadow: inset 0 -3px 0 rgba(0, 0, 0, 0.2);
+            &.blank {
+                background: lightgray;
+                box-shadow: inset 0 -3px 0 rgba(255, 255, 255, 0.4);
+            }
+            &.free {
+                background: $kiviGreen;
+                cursor: pointer;
+            }
+            &.limited {
+                background: $kiviOrange;
+                cursor: pointer;
+            }
+            &.busy {
+                background: $kiviRed;
+                cursor: pointer;
+            }
+            &.day-of-week {
+                background: $kiviDarkGrey;
+            }
+            user-select: none;
+            color: white;
+            font-size: 1rem;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+            justify-content: center;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            @media (min-width: 500px) {
+                font-size: inherit;
+            }
+            &:after {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: rgba(0, 0, 0, 0.1);
+                opacity: 0;
+                transition: all .2s;
+            }
+            &:hover:not(.blank) {
+                &:after {
+                    opacity: 1;
+                }
+            }
+        }
+    }
+
+    .hr {
+        margin: 3px auto;
+        border-bottom: 1px solid $kiviDarkGrey;
+        box-shadow: 0 0 1px rgba(0, 0, 0, 0.7);
+    }
+
+    .overlay {  
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 10;
+        background-color: rgba(0,0,0,0.7);
+        box-shadow: 0 0 8px rgba(0, 0, 0, 0.7);
+    }
+    .alert-box {
+        position: absolute;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 20;
+        .booking-alert {
+            text-align: center;
+            width: 75%;
+            i {
+                margin-right: 0.5rem;
+            }
+        }
+    }
+    .confirm-dialog {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 20;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        .call-to-action {
+            text-align: center;
+            width: 75%;
+            padding: 1.5rem 3rem;
+            app-spinner {
+                height: 24px;
+                transform: scale(0.6);
+            }
+            .buttons {
+                display: flex;
+                justify-content: flex-end;
+                button {
+                    margin-left: 1rem;
+                }
+            }
+        }
+    }
+
+
+    @media (min-width: 500px) {
+        margin: 3rem;
+    }
+}
+

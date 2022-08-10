@@ -1,0 +1,67 @@
+* {box-sizing: border-box}
+
+.dropdown-form {
+  transform-origin: top center;
+}
+
+.container {
+  margin: 5rem auto 8rem;
+}
+
+input, select, textarea {
+  margin-bottom: 1rem;
+}
+
+textarea {
+  resize: vertical;
+}
+
+.btn-warning {
+  margin-bottom: 2rem;
+}
+
+.btn-info {
+  margin-right: 1rem;
+}
+.alert-success {
+  margin-top: 5rem;
+}
+
+.final-button-box {
+  margin-top: 5rem;
+}
+
+button i {
+  margin-left: 1rem;
+}
+
+input:invalid{
+  border-color: #900;
+  border: 2px solid red;
+}
+
+.error {
+  width  : 100%;
+  padding: 0;
+
+  font-size: 80%;
+  color: white;
+  background-color: #900;
+  border-radius: 0 0 5px 5px;
+
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+label {
+    position: relative;
+
+    .scroll-target {
+        width: 0;
+        height: 0;
+        position: absolute;
+        top: -100px;
+        left: 0;
+        pointer-events: none;
+    }
+}

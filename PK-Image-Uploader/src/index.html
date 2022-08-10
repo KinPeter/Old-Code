@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0">
+  <title>Image Uploader Web Component</title>
+
+  <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+
+  <script type="module" src="/build/pk-image-uploader.esm.js"></script>
+  <script nomodule src="/build/pk-image-uploader.js"></script>
+
+  <style>
+    body {
+      font-family: 'Roboto', sans-serif;
+    }
+    #uploader-2 {
+      --iu-primary-color: rgb(96, 134, 146);
+      --iu-dragging-color: blue;
+      --iu-error-color: red;
+      --iu-border-radius: 0;
+    }
+    .wrapper {
+      width: 480px;
+      margin: 100px auto;
+    }
+    pk-image-uploader {
+      height: 280px;
+      margin: 1rem 0;
+    }
+  </style>
+
+</head>
+<body>
+
+  <div class="wrapper">
+
+    <pk-image-uploader
+      id="uploader-1"
+      image="https://4al52k24l8r51wpym5i46ltd-wpengine.netdna-ssl.com/wp-content/uploads/sites/2/2020/02/GettyImages-1199242002-1-scaled.jpg"
+      label="Cover image 1"
+    >
+    </pk-image-uploader>
+
+    <pk-image-uploader
+      id="uploader-2"
+      label="Cover image 2"
+      width-min="0"
+      width-max="0"
+    >
+    </pk-image-uploader>
+
+  </div>
+
+  <script>
+    const uploader1 = document.getElementById('uploader-1');
+    uploader1.addEventListener('imagechange', (event) => {
+      console.log('image #1 changed:', event.detail);
+    });
+    const uploader2 = document.getElementById('uploader-2');
+    uploader2.addEventListener('imagechange', (event) => {
+      console.log('image #2 changed:', event.detail);
+    });
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,71 @@
+@import '../../../../variables.scss';
+
+$sizeDivider: 1.5;
+
+.loader,
+.loader:before,
+.loader:after {
+  border-radius: 50%;
+}
+.loader {
+  color: $kiviGreen;
+  font-size: 11px / $sizeDivider;
+  text-indent: -99999em;
+  margin: 0 auto;
+  position: relative;
+  width: 10em / $sizeDivider;
+  height: 10em / $sizeDivider;
+  box-shadow: inset 0 0 0 1em;
+  -webkit-transform: translateZ(0);
+  -ms-transform: translateZ(0);
+  transform: translateZ(0);
+}
+.loader:before,
+.loader:after {
+  position: absolute;
+  content: '';
+}
+.loader:before {
+  width: 5.2em / $sizeDivider;
+  height: 10.2em / $sizeDivider;
+  background: #ffffff;
+  border-radius: 10.2em / $sizeDivider 0 0 10.2em / $sizeDivider;
+  top: -0.1em / $sizeDivider;
+  left: -0.1em / $sizeDivider;
+  -webkit-transform-origin: 5.2em / $sizeDivider 5.1em / $sizeDivider;
+  transform-origin: 5.2em / $sizeDivider 5.1em / $sizeDivider;
+  -webkit-animation: load2 2s infinite ease 1.5s;
+  animation: load2 2s infinite ease 1.5s;
+}
+.loader:after {
+  width: 5.2em / $sizeDivider;
+  height: 10.2em / $sizeDivider;
+  background: #ffffff;
+  border-radius: 0 10.2em / $sizeDivider 10.2em / $sizeDivider 0;
+  top: -0.1em / $sizeDivider;
+  left: 5.1em / $sizeDivider;
+  -webkit-transform-origin: 0px 5.1em / $sizeDivider;
+  transform-origin: 0px 5.1em / $sizeDivider;
+  -webkit-animation: load2 2s infinite ease;
+  animation: load2 2s infinite ease;
+}
+@-webkit-keyframes load2 {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@keyframes load2 {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}

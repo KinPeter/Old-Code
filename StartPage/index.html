@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="shortcut icon" type="image/png" href="./images/favicon.png">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="./sources/bootstrap.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Cabin+Condensed:400,700|BenchNine:300,400" rel="stylesheet">
+    <!-- FontAwesome CSS -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+    <!-- MY STYLES -->
+    <link rel="stylesheet" href="./css/styles.css">
+    <title>Start!</title>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="row">
+
+            <!-------------------------------------------------------
+                                 NOTES COLUMN
+            -->
+            <div class="column col-notes">
+                <div class="box box-notes">
+                    <div class="box-title">Notes</div>
+                    <div class="notes-wrapper" id="notes-list"></div>
+                </div>
+                <div class="box">
+                    <div class="add-note-wrapper">
+                        <textarea class="form-control" id="note-textarea" rows="3" maxlength="300" placeholder="Add new note here" data-id="0"></textarea>
+                        <span class="add-btn add-href"><i class="fas fa-code"></i></span>
+                        <span class="add-btn add-br"><i class="fas fa-level-down-alt"></i></span>
+                        <span class="add-btn save"><i class="fas fa-check-square"></i></span>
+                    </div>
+                </div>
+                <div class="box">
+                    <input type="password" class="form-control" id="password" placeholder="Enter your password">
+                </div>
+            </div>
+
+            <!-------------------------------------------------------
+                              NARROW LINKS COLUMN
+            -->
+            <div class="column col-narrow">               
+                <div class="box box-narrow tiles">
+                    <div class="box-title">Top</div>
+                    <div class="tile-wrapper-narrow" id="top-links"></div>
+                </div>              
+            </div>
+
+            <!-------------------------------------------------------
+                                MIDDLE COLUMN
+            -->
+            <div class="column col-middle">
+                <div class="box box-welcome">
+                    <div class="welcome"></div>
+                    <div class="weather"></div>
+                </div>
+                <!-- <div class="box box-middle text-center">
+                    <img src="./images/google-wide.png" alt="google" id="google-wide">
+                    <input class="form-control search" id="google-search" type="text" placeholder="Search Google">
+                </div> -->
+                <div class="box box-middle text-center">
+                    <div class="box-title">My Search</div>
+                    <div class="row">
+                        <div class="col-4"><div class="tab-btn" id="links-tab-btn">My Links</div></div>
+                        <div class="col-4"><div class="tab-btn" id="dict-tab-btn">Korean-Hungarian</div></div>
+                        <div class="col-4"><div class="tab-btn" id="google-tab-btn">Google</div></div>               
+                    </div>
+                    <input class="form-control search" id="search-input" type="text" placeholder="Search">
+                    <div id="links-status"></div>
+                </div>
+                <div class="box box-middle text-center">
+                    <div class="box-title">Daily Korean <i class="fas fa-sync-alt" id="reload-korean"></i></div>
+                    <div class="cards-wrapper"></div>
+                </div>
+            </div>
+
+            <!-------------------------------------------------------
+                              FIRST LINKS COLUMN
+            -->
+            <div class="column col-links">
+                <div class="box box-links">
+                    <div class="box-title">Coding</div>
+                    <div class="tile-wrapper" id="coding-links"></div>
+                </div>
+                <div class="box box-links">
+                    <div class="box-title">Fun</div>
+                    <div class="tile-wrapper" id="fun-links"></div>
+                </div>
+            </div>
+
+            <!-------------------------------------------------------
+                              SEDOND LINKS COLUMN
+            -->
+            <div class="column col-links"> 
+                <div class="box box-links">
+                    <div class="box-title">Google</div>
+                    <div class="tile-wrapper" id="google-links"></div>
+                </div>
+                <div class="box box-links">
+                    <div class="box-title">Others</div>
+                    <div class="tile-wrapper" id="other-links"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Modal for search results -->
+    <div class="modal fade" id="modal" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-dialog-scrollable" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modal-title">Results</h5>
+                    <button type="button" class="close" data-dismiss="modal">
+                        <span>&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <table class="table table-striped">
+                        <tbody id="results-table">
+                            <!-- <tr>
+                                <th scope="row"><a href="#" target="_blank">Test Link</a></th>
+                            </tr> -->
+                        </tbody>
+                    </table>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal for site messages -->
+    <div class="modal" id="message" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Message</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p id="message-text">Modal body text goes here.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="./sources/jquery-3.3.1.min.js"></script>
+    <script src="./sources/bootstrap.bundle.min.js"></script>
+    <script src="./sources/moment.min.js"></script>
+    <!-- <script src="./js/keys.js"></script>
+    <script src="./js/welcome-weather.js"></script>
+    <script src="./js/tiles.js"></script>
+    <script src="./js/links.js"></script>
+    <script src="./js/dictionary.js"></script>
+    <script src="./js/notes.js"></script>
+    <script src="./js/search.js"></script>
+    <script src="./js/daily-korean.js"></script>
+    <script src="./js/start.js"></script> -->
+    <script src="./js/start.bundle.js"></script>
+</body>
+</html>

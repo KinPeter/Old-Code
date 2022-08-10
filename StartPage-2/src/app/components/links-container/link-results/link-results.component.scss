@@ -1,0 +1,16 @@
+@import '~src/variables';
+
+.link-results {
+  @extend %whiteModalBasics;
+  @extend %whiteModalHeader;
+
+  .results-wrapper {
+    overflow-y: auto;
+    max-height: calc(400px - 4.25rem);
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+
+  @include whiteModalAnimations(right);
+}

@@ -1,0 +1,87 @@
+$transBlue: rgba(0, 0, 255, 0.6);
+$transBlueHover: rgba(0, 0, 255, 0.795);
+$transWhite: rgba(255, 255, 255, 0.65);
+$boxShadow: 4px 4px 8px rgba(0,0,0,0.4);
+$borderBottom: 4px solid $transBlue;
+
+body {
+    background-image: url(../assets/hexellence_@2X.png);
+    font-family: Georgia, serif;
+    font-weight: 300;
+}
+
+.App {
+    #dict-wrapper {
+        max-width: 700px;
+        min-height: 95vh;
+        padding: 1rem;
+        @media (min-width: 576px) { 
+            padding: 3rem;
+        }    
+    }
+    .title {
+        font-size: 1.5rem;
+        font-weight: bold;
+        margin-bottom: 1rem;
+        margin-top: 2rem;
+        font-family: 'Cinzel', serif;
+        @media (min-width: 576px) { 
+            font-size: 2rem;
+            margin-bottom: 2rem;
+        }
+    }
+    .results-wrapper {
+        padding: 0rem;
+        text-align: left;
+        @media (min-width: 576px) { 
+            padding: 2rem;
+        }
+        .result-box {
+            background: rgba(255, 255, 255, 0.65);
+            margin-bottom: .5rem;
+            box-shadow: $boxShadow;
+            border-bottom: $borderBottom;
+
+            .result-row {
+                padding: .8rem;
+            }
+            .row-one {
+                border-bottom: 1px solid $transBlue;
+                font-weight: bold;
+                sup {
+                    color: $transBlue;
+                    position: relative;
+                    top: -.7rem;
+                    margin-left: -.2rem;
+                    margin-right: .3rem;
+                    opacity: .3;
+                }
+            }
+            .row-two {
+                padding-left: 2.5rem;
+                padding-right: 1rem;
+                font-family: "Trebuchet MS", Helvetica, sans-serif;
+            }
+        }
+    }
+    .footer {
+        text-align: center;
+        height: 5vh;
+        min-height: 40px;
+        background-color: $transBlue;
+        padding: .5rem;
+        color: white;
+        text-shadow: 2px 2px 2px #5680e9;
+        border-top: 1px solid white;
+        a {
+            color: blue;
+            text-shadow: 2px 2px 2px $transWhite;
+        }
+    }
+    .alert-danger {
+        box-shadow: $boxShadow;
+        i {
+            margin-right: .2rem;
+        }
+    }
+}

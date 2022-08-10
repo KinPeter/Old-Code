@@ -1,0 +1,28 @@
+{
+  "name": "gclup",
+  "version": "1.0.0",
+  "description": "Git Branch Cleanup",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/KinPeter/GClup-Git-Branch-Cleanup-CLI-tool"
+  },
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "keywords": [
+    "git",
+    "branch",
+    "cleanup",
+    "cli",
+    "tool"
+  ],
+  "author": "Peter Kin",
+  "license": "MIT",
+  "dependencies": {
+    "chalk": "^3.0.0",
+    "prompt-sync": "^4.2.0",
+    "yargs": "^15.1.0"
+  },
+  "devDependencies": {}
+}

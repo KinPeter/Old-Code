@@ -1,0 +1,41 @@
+<h1 *ngIf="data" mat-dialog-title>Edit tile: {{data.name}}</h1>
+<h1 *ngIf="!data" mat-dialog-title>Add new tile</h1>
+<div mat-dialog-content>
+    <form #form="ngForm" fxLayout="column">
+        <mat-form-field>
+            <mat-label>Category</mat-label>
+            <mat-select name="category" ngModel required>
+                <mat-option *ngFor="let cat of ts.categories" [value]="cat">
+                    {{ cat | titlecase}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="Name" name="name" ngModel required>
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="Link" name="link" ngModel required>
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="Icon" name="icon" ngModel required>
+        </mat-form-field>
+        <mat-label>Priority:</mat-label>
+        <mat-slider [max]="10" [min]="1" [step]="1"
+            [thumbLabel]="true" [tickInterval]="1" ngModel name="priority" required>
+        </mat-slider>
+    </form>
+</div>
+<div mat-dialog-actions style="justify-content: flex-end">
+    <button 
+        mat-stroked-button 
+        (click)="onCancel()">
+        Cancel
+    </button>
+    <button 
+        mat-flat-button 
+        color="accent" 
+        (click)="onSave()" 
+        [disabled]="form.invalid || !form.dirty">
+        Save
+    </button>
+</div>

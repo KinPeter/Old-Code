@@ -1,0 +1,206 @@
+/* ABOUT ME */
+%aboutLink {
+    font-weight: bold;
+    color: darkorange;
+    &:hover {
+        color: $myGrey;
+    }
+}
+
+%aboutAnimateInit {
+    transform-origin: left center;
+    perspective: 100px;
+    transform: rotate3d(0, 1, .5, -180deg);
+    opacity: 0;
+}
+
+#about .title {
+    margin: 3rem auto;
+}
+.aboutDiv {
+    padding: .5rem 1rem;
+    p {
+        text-align: justify;
+    }
+    a {
+        @extend %aboutLink;
+    }
+    h4 {
+        text-align: center;
+        margin-bottom: 1rem;
+    }
+    @extend %aboutAnimateInit;
+}
+
+.aboutImgWrapper {
+    padding: 0 1rem;
+}
+.aboutImg {
+    border-radius: 20% 80% 20% 80% !important;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 5px 10px 2px rgba(0,0,0,0.5);
+}
+
+/* DOWNLOAD CV */
+.smallTitleRow {
+    cursor: pointer;
+    margin: 1rem auto 2rem auto;
+    width: 100%;
+    &:hover {
+        color: $myGrey;
+        text-shadow: 1px 2px 4px rgba(235,150,40,0.5);
+    }
+}
+.smallTitle {
+    @extend %comfortaa-bold;
+    font-size: 1.5rem;
+    border-bottom: 2px solid $myOrange;
+    border-right: none;
+}
+.smallDescription {
+    padding-top: .3rem;
+    padding-left: 2rem;
+}
+.downloadCVwrapper {
+    max-width: 600px;
+    display: block;
+    text-align: center;
+    margin: 1rem auto 2rem auto;
+    button {
+        width: 5rem !important;
+        padding: 0;
+        height: 2rem;
+        margin: 0 auto;
+    }
+    input {
+        width: 15rem;
+        margin: 0 auto;
+    } 
+}
+.skills-row {
+    .skills-col, .goals-col {
+        @extend %aboutAnimateInit;
+    }
+    .skill-title {
+        @extend %comfortaa-bold;
+        font-size: 1.5rem;
+        border-left: 3px solid $myOrange;
+        padding: .7rem;
+        margin-bottom: 1rem;
+    }
+    a {
+        @extend %aboutLink;
+    }
+    p {
+        padding-left: 1rem;
+    }
+    ul {
+        padding-left: 1rem;
+        margin-bottom: 2rem;
+        li {
+            list-style-type: none;
+            line-height: 1.7;
+            i {
+                color: $myOrange;
+                margin-right: 0.5rem;
+            }
+        }
+    }
+    .skills-col {
+        margin-bottom: 3rem;
+        .row {
+            height: 3.5rem;
+            
+        }
+        .col-2 {
+            text-align: center;
+        }
+        i {
+            color: $myGrey;
+            font-size: 2rem;
+        }
+        img {
+            height: 55%;
+        }
+        .skill-meter-row {
+            margin-left: 1rem;
+            .col-10 {
+                padding: .5rem 3rem 1rem 0;
+                border-left: 3px solid $myGrey;
+            }
+            #js-meter { width: 100%; } // JavaScript
+            #jq-meter { width: 90%;  } // JQuery
+            #ht-meter { width: 90%;  } // HTML
+            #cs-meter { width: 100%; } // CSS
+            #sa-meter { width: 75%;  } // SASS
+            #bs-meter { width: 85%;  } // BootStrap
+            #ts-meter { width: 70%;  } // TypeScript
+            #ng-meter { width: 65%;  } // Angular
+            #re-meter { width: 50%;  } // React
+            .skill-meter {
+                height: 23px;
+                background: $myOrange; // fallback
+                background: 
+                    linear-gradient(180deg, #ffffffa1 0, transparent 30%, transparent 70%, #000000a1 100%),
+                    linear-gradient(-45deg, $myOrangeLite 25%, $myOrange 0, $myOrange 50%,
+                    $myOrangeLite 0, $myOrangeLite 75%, $myOrange 0);
+                background-size: 30px 30px;
+                border: 2px solid $myGrey;
+                border-left: none;
+                border-top-right-radius: 5px;
+                border-bottom-right-radius: 5px;
+                transform-origin: left center;
+                transition: all 2s ease-out;                
+            }
+        }
+        @media (min-width: 576px) {
+            margin-bottom: 1rem;
+            i {
+                color: $myGrey;
+                font-size: 3rem;
+            }
+            img {
+                height: 65%;
+            }
+            #bootstrap-img {
+                height: 55%;
+            }
+            .skill-meter-row {
+                margin-left: 1rem;
+                .col-10 {
+                    padding: .8rem 7rem 1rem 0;
+                }
+
+                .skill-meter {
+                    height: 30px;
+                }
+                &:hover {
+                    .skill-meter {
+                        background-position: 100px 0;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@keyframes skillMeterIn {
+    25% { width:  25%; }
+    50% { width: 100%; }
+    75% { width:   5%; }
+}
+
+.aboutDivAnimateIn {
+    transform: rotate3d(0, 1, .5, 0deg) !important;
+    opacity: 1 !important;
+    transition: all .5s;
+    #js-meter { animation: skillMeterIn 4s ease-in-out 0s;   } // JavaScript
+    #jq-meter { animation: skillMeterIn 4s ease-in-out 0.2s; } // JQuery
+    #ht-meter { animation: skillMeterIn 4s ease-in-out 0.4s; } // HTML
+    #cs-meter { animation: skillMeterIn 4s ease-in-out 0.6s; } // CSS
+    #sa-meter { animation: skillMeterIn 4s ease-in-out 0.8s; } // SASS
+    #bs-meter { animation: skillMeterIn 4s ease-in-out 1s;   } // BootStrap
+    #ts-meter { animation: skillMeterIn 4s ease-in-out 1.2s; } // TypeScript
+    #ng-meter { animation: skillMeterIn 4s ease-in-out 1.4s; } // Angular
+    #re-meter { animation: skillMeterIn 4s ease-in-out 1.6s; } // React
+}

@@ -1,0 +1,151 @@
+// Customizable variables:
+$transBlue: rgba(0, 0, 255, 0.6);
+$transBlueHover: rgba(0, 0, 255, 0.795);
+$transWhite: rgba(255, 255, 255, 0.65);
+$boxShadow: 4px 4px 8px rgba(0,0,0,0.4);
+$borderBottom: 4px solid $transBlue;
+
+$mainColor: $transBlue;
+$mainTextColor: black;
+
+$wrapperPadding: 0;
+
+$optionBoxMaxHeight: 150px;
+$optionBoxBackgroundColor: rgb(139, 170, 255);
+$optionBoxBorder: 1px solid $mainColor;
+$optionBoxBorderRadius: 0px;
+$optionBoxShadow: 1px 1px 3px #000000aa;
+$optionTextColor: $mainTextColor;
+$optionHoverBackgroundColor: $transBlue;
+$optionHoverTextColor: white;
+
+$toggleColorOn: $transBlue;
+$toggleColorOff: rgba(128, 128, 128, 0.5);
+
+@mixin toggleButton ($color1, $color2) {
+    background: transparent;
+    border: 1px solid $color1;
+    box-shadow: 0 0 5px $color1;
+    &:hover {
+        background: $color2;
+        border: 1px solid $color2;
+        box-shadow: 0 0 5px $color2;
+    }
+}
+
+.Autocomplete {
+    padding: $wrapperPadding;
+
+    .input-wrapper {
+        display: flex;
+        .input-field {
+            flex-grow: 2;
+            background-color: $transWhite;
+            box-shadow: $boxShadow;
+            border-bottom: $borderBottom;
+            border-radius: 0;
+            &:focus {
+                border-color: $transBlue;
+                // box-shadow: $inputFieldAndButtonShadowOnFocus;
+                outline: none; //remove browser default outline
+            }
+        }
+    }
+
+    button {
+        background-color: $transBlue;
+        color: white;
+        width: 150px;
+        padding: .3rem 0;
+        font-weight: bold;
+        border: 1px solid $transWhite;
+        border-radius: 5px;
+        box-shadow: $boxShadow;
+        margin-top: 2rem;
+        margin-bottom: 2rem;
+        &:hover {
+            background-color: $transBlueHover;
+        }
+        
+    }
+
+    .option-wrapper {
+        position: relative;
+        top: .2rem;
+        text-align: left;
+        width: 100%;
+        ::-webkit-scrollbar { 
+            display: none; 
+        }
+        .option-list {
+            max-height: $optionBoxMaxHeight;
+            overflow-y: auto;
+            width: calc(100% - 2px);
+            position: absolute;
+            background: $optionBoxBackgroundColor; // fallback
+            // scroll hint effect:
+            background: linear-gradient($optionBoxBackgroundColor 15px, hsla(0,0%,100%,0)) 0 0 / 100% 50px,
+                        radial-gradient(at top, rgba(0,0,0,.3), transparent 70%) 0 0 / 100% 15px,
+                        linear-gradient(to top, $optionBoxBackgroundColor 15px, hsla(0,0%,100%,0)) bottom / 100% 50px,
+                        radial-gradient(at bottom, rgba(0,0,0,.3), transparent 70%) bottom / 100% 15px,
+                        linear-gradient($optionBoxBackgroundColor, $optionBoxBackgroundColor);
+            background-repeat: no-repeat;
+            background-attachment: local, scroll, local, scroll, scroll;
+            border: $optionBoxBorder;
+            border-radius: $optionBoxBorderRadius;
+            box-shadow: $optionBoxShadow;
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            
+            li {
+                padding-left: .5rem;
+                color: $optionTextColor;
+                cursor: pointer;
+            }
+            .hovered {
+                background-color: $optionHoverBackgroundColor;
+                color: $optionHoverTextColor;
+            }
+        }
+    }
+
+    .toggle-wrapper {
+        display: flex;
+        flex-flow: row-reverse;
+        position: relative;
+        .toggle-box {
+            cursor: pointer;
+            position: absolute;
+            top: -127px;
+            right: 10px;
+            height: 13px;
+            width: 13px;
+            border-radius: 50%;
+            &.toggle-on {
+                @include toggleButton($toggleColorOn, $toggleColorOff);
+            }
+            &.toggle-off {
+                @include toggleButton($toggleColorOff, $toggleColorOn);
+            }
+            &:hover {
+                .toggle-info {
+                    opacity: 1;
+                    transform: scaleX(1);
+                }
+            }
+            .toggle-info {
+                position: absolute;
+                right: 10px;
+                top: -4px;
+                width: 140px;
+                font-size: .8rem;
+                color: darkgray;
+                transform-origin: center right;
+                transform: scaleX(0);
+                opacity: 0;
+                transition: all .2s ease-in;
+            }
+        }
+    }
+}

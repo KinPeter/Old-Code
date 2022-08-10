@@ -1,0 +1,25 @@
+.notes {
+    position: relative;
+    top: 20px;
+    width: 100%;
+    height: 85vh;
+    overflow-y: auto;
+    .note-placeholder, .top-gradient, .bottom-gradient {
+        width: 100%;
+        height: 3rem;
+    }
+    .top-gradient {
+        position: fixed;
+        top: 70px;
+        left: 0;
+        z-index: 1;
+        background: linear-gradient(to bottom, $blue3 0%, transparent 100%);
+    }
+    .bottom-gradient {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        z-index: 1;
+        background: linear-gradient(to top, $blue3 0%, $blue3 50%, transparent 100%);
+    }
+}

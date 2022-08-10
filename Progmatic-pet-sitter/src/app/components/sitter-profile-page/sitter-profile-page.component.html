@@ -1,0 +1,134 @@
+<div class="spinner-wrapper" *ngIf="isLoading">
+	<div class="spinner-box">
+		<p>Kis türelmet...</p>
+		<app-spinner></app-spinner>
+	</div>
+</div>
+
+<div class="container" *ngIf="!isLoading && !sitterNotFound">
+	<div class="row">
+		<div class="content col-md-7">
+			<div class="job-profile-info">
+				<div class="row sitter-card">
+					<div class="col-md-5">
+						<figure class="alignnone">
+							<img src="{{ profilePicUrl }}" class="avatar img-circle img-thumbnail" alt="avatar" alt="">
+						</figure>
+					</div>
+					<div class="col-md-7">
+						<h1 class="name">{{ sitter.userName || sitter.username }}</h1>
+						<i class="tagline"></i>
+						<ul class="info">
+							<li>
+								<i class="fa fa-map-marker"></i>
+								{{ sitter.postalCode }}
+								{{ sitter.city }}{{ isUserLoggedIn ? ', ' + sitter.address : '' }}
+							</li>
+						</ul>
+						<div class="ratings">
+							<h4>Értékelésem:</h4>	
+							<span *ngFor="let star of ratingFullStars" class="fa fa-star"></span>
+							<span *ngFor="let star of ratingHalfStars" class="fa fa-star-half-o"></span>
+							<span *ngFor="let star of ratingEmptyStars" class="fa fa-star-o"></span>
+							<br>
+							<span class="number-of-ratings">({{ sitter.numberOfRatings }} értékelés alapján)</span>
+						</div>
+						<div class="call-to-action" *ngIf="isUserLoggedIn">
+							<div>
+								<span class="fa fa-star"></span>
+							</div>
+							<div class="cta-txt">
+								<p>Értékelés küldése</p>
+							</div>
+							<div class="select-rate">
+								<select class="form-control" [(ngModel)]="ratingToSend">
+									<option value="1">1</option>
+									<option value="2">2</option>
+									<option value="3">3</option>
+									<option value="4">4</option>
+									<option value="5" selected>5</option>
+								</select>
+							</div>
+							<div class="cta-btn">
+								<button class="btn btn-success btn-sm" (click)="sendRating()">Mehet</button>
+							</div>
+						</div>
+						<div class="alert alert-success" *ngIf="showRatingSuccess"><i class="fa fa-check-circle"></i> Értékelés küldése sikeres!</div>
+						<div class="alert alert-danger" *ngIf="showRatingError"><i class="fa fa-exclamation-circle"></i> Hiba történt, kérlek próbáld újra később.</div>
+					</div>
+				</div>
+				<hr>
+				<h4>Mikor érek rá?</h4>
+				<p>Alább láthatod, hogy a következő 30 napban mikor tudnék foglalkozni kedvenceddel.<br>
+				Foglalási igény küldéséhez <span *ngIf="!isUserLoggedIn">jelentkezz be, és </span>kattints a kívánt napra.</p>
+				<app-sitter-calendar 
+					*ngIf="!isLoading" 
+					[isComingFromSitterProfile]=true 
+					[viewedSitter]="sitter">
+				</app-sitter-calendar>
+				<div class="map-legend">
+					<div><span class="legend-green"></span> Egész nap ráérek</div>
+					<div><span class="legend-orange"></span> Talán ráérek</div>
+					<div><span class="legend-red"></span> Sajnos elfoglalt vagyok</div>
+					
+				</div>
+			</div>
+		</div>
+		
+		<div class="content col-md-5">
+			<h4>Pár szóban rólam:</h4>
+			<blockquote>
+				<p>{{ sitter.intro }}</p>
+			</blockquote>
+			<hr>
+			<h4>Szolgáltatásaim:</h4>
+			<blockquote class="service" *ngFor="let service of sitter.services">
+				<i class="entypo circled-info"></i>
+				<div class="row">
+					<div class="col-xs-5">
+						<i class="fa fa-home"></i> 
+						Hol?
+					</div>
+					<div class="col-xs-7">
+						<span>{{ getPlaceOfService(service.place) }}</span>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-xs-5">
+						<i class="fa fa-paw"></i> 
+						Milyen állattal?
+					</div>
+					<div class="col-xs-7">
+						<span>{{ getPetType(service.petType) }}</span>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-xs-5">
+						<i class="fa fa-gift"></i> 
+						Mennyiért?
+					</div>
+					<div class="col-xs-7">
+						<span>{{ service.pricePerHour }} Ft /óra</span>
+					</div>
+				</div>
+			</blockquote>
+
+		</div>
+	</div>
+
+</div>
+
+<div class="container" *ngIf="!isLoading && sitterNotFound">
+	<div class="row">
+		<div class="col-md-8 col-md-offset-2 text-center">
+			<h2 class="error-title">404</h2>
+			<h3>Elnézést, a keresett KiVi nem található.</h3>
+			<p class="error-desc">Kérlek próbálkozz egy új kereséssel.</p>
+			<button class="btn btn-primary" routerLink="/sitter/search">Kivit Keresek</button>
+		</div>
+	</div>
+</div>
+
+
+
+

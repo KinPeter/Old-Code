@@ -1,0 +1,85 @@
+
+.note-wrapper {
+    .note {
+        position: relative;
+        height: auto;
+        background: linear-gradient(135deg, #fff 0%, $lightBlue 50%, $lightBlue 100%);
+        border: 1px solid #fff;
+        margin-bottom: .5rem;
+        padding: 0.5rem;
+        color: $blue1;
+        font-size: 1.15rem;
+
+        .note-text {
+            font-weight: bold;
+            margin: 0;
+        }
+        .note-links {
+            list-style: none;
+            padding-left: 0;
+            margin: 0;
+            a {
+                color: $orange;
+                text-decoration: none;
+                font-weight: bold;
+                i {
+                    margin: 0 0.2rem;
+                    font-size: .9rem;
+                    transition: all .2s ease;
+                }
+            }
+        }
+        footer {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 1rem;
+        }
+        .note-buttons {
+            display: flex;
+            align-items: flex-end;
+            justify-content: flex-end;
+            i {
+                cursor: pointer;
+                margin-left: 0.5rem;
+                font-size: 1.25rem;
+            }
+        }
+
+        &.archived {
+            background: linear-gradient(135deg, #fff 0%, $lightGrey 50%, $lightGrey 100%);
+            color: grey;
+            opacity: .5;
+        }
+
+        .delete-confirm-wrapper {
+            position: absolute;
+            bottom: 0;
+            right: 0.2rem;
+
+            transform: translateY(50px); opacity: 0;
+            animation: slideUp .2s ease forwards;
+            @keyframes slideUp {
+                from { transform: translateY(50px); opacity: 0; }
+                to   { transform: translateY(0); opacity: 1; }
+            }
+            div {
+                width: 30px;
+                height: 30px;
+                margin-bottom: 5px;
+                border-radius: 50%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                color: white;
+                font-size: 1rem;
+                box-shadow: 2px 2px 2px rgba(0,0,0,0.6);
+                &.confirm-delete {
+                    background-color: $danger;
+                }
+                &.cancel-delete {
+                    background-color: $lightGrey;
+                }
+            }
+        }
+    }
+}

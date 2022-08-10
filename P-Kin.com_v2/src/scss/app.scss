@@ -1,0 +1,43 @@
+@import './fonts';
+@import './variables';
+@import './shared';
+@import './transitions';
+
+body {
+    padding: 0;
+    margin: 0;
+    background-color: $light;
+    color: $dark;
+    font-family: $mont-light;
+    box-sizing: border-box;
+}
+.site-container {
+    display: flex;
+    flex-direction: column;
+    min-height: calc(100vh - 80px);
+    padding-top: 80px;
+    main.router-view {
+        flex-grow: 1;
+        margin: 1rem auto;
+        @extend %widthMedia;
+    }
+}
+
+a {
+    text-decoration: none;
+    color: $dark;
+    &:visited {
+        color: $dark;
+    }
+}
+
+.box-title {
+    font-family: $mont-light;
+    font-size: 1.25rem;
+    margin-top: -.5rem;
+}
+
+.sub-title {
+    margin: 0 0 .5rem;
+    color: $orange;
+}

@@ -1,0 +1,145 @@
+.button-vertical-animated {
+  cursor: pointer;
+  position: relative;
+
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    width: 50%;
+    height: 0;
+    background: var(--background-color);
+  }
+
+  &::before {
+    top: -2px;
+    left: 0;
+    transition: all 0.2s ease;
+  }
+
+  &::after {
+    bottom: 0;
+    right: 0;
+    transition: all 0.2s 0.1s ease;
+  }
+
+  &:hover::before,
+  &:hover::after {
+    height: 100%;
+  }
+}
+
+.button-horizontal-animated {
+  cursor: pointer;
+  position: relative;
+
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    width: 0;
+    height: 50%;
+    background: var(--background-color);
+  }
+
+  &::before {
+    left: 2px;
+    top: 0;
+    transition: all 0.2s ease;
+  }
+
+  &::after {
+    right: 2px;
+    bottom: 0;
+    transition: all 0.2s 0.1s ease;
+  }
+
+  &:hover::before,
+  &:hover::after {
+    width: 100%;
+  }
+}
+
+.pk-button {
+  height: 36px;
+  text-transform: uppercase;
+  padding-left: 16px;
+  padding-right: 16px;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  border: 1px solid var(--text-color-light);
+  transition: all 0.2s ease;
+  cursor: pointer;
+
+  &_accent {
+    color: var(--color-accent);
+    border: 1px solid var(--color-accent);
+  }
+
+  &_warn {
+    color: var(--color-warn);
+    border: 1px solid var(--color-warn);
+  }
+
+  &_danger {
+    color: var(--color-danger);
+    border: 1px solid var(--color-danger);
+  }
+
+  &_active {
+    background-color: var(--background-color-secondary);
+  }
+
+  &:hover {
+    background-color: var(--background-color-secondary);
+  }
+
+  &:focus {
+    outline: var(--color-accent) groove 1px;
+  }
+
+  &:disabled {
+    color: var(--text-color-light);
+    border: 1px solid var(--text-color-light);
+    cursor: not-allowed;
+
+    &:hover {
+      background-color: initial;
+    }
+  }
+}
+
+.pk-small-icon-button {
+  height: 36px;
+  width: 36px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  border: none;
+  color: var(--text-color-light);
+  background-color: transparent;
+  cursor: pointer;
+  transition: all 0.2s ease;
+
+  &:hover {
+    color: var(--text-color);
+    background-color: var(--background-color-secondary);
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+
+    &:hover {
+      color: var(--text-color-light);
+      background-color: initial;
+    }
+  }
+
+  & > * {
+    height: 24px;
+  }
+}

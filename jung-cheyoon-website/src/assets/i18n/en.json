@@ -1,0 +1,30 @@
+{
+  "menu": {
+    "about": "About me",
+    "portfolio": "Portfolio"
+  },
+  "languages": {
+    "en": "EN",
+    "kr": "KR"
+  },
+  "p": {
+    "about": {
+      "tech-stack": "Tech stack",
+      "other-tech": "Other related technologies I'm familiar with, or have some experience"
+    }
+  },
+  "c": {
+    "portfolio-card": {
+      "show-more": "Show more",
+      "in-progress": "In progress"
+    },
+    "filters": {
+      "all": "All",
+      "filter-results": "Filter results",
+      "not-found": "Sorry, no match found..."
+    }
+  },
+  "error": {
+    "cannot-get": "Could not reach the server, please try again later."
+  }
+}

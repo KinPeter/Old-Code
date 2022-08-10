@@ -1,0 +1,29 @@
+ul {
+    list-style: none;
+    padding: 0;
+}
+.actions {
+    padding: .5rem 1rem;
+    button[mat-mini-fab] {
+        width: 30px;
+        height: 30px;
+        margin-right: 5px;
+        mat-icon {
+            font-size: 17px;
+            position: relative;
+            top: -2px;
+            color: white;
+        }
+    }
+}
+button[mat-fab] {
+    position: absolute;
+    right: 1rem;
+    mat-icon {
+        color: white;
+        position: relative;
+        top: -7px;
+        left: -5px;
+        font-size: 36px;
+    }
+}

@@ -1,0 +1,203 @@
+<div class="container">
+<div class="row">
+<div class="col-md-6 col-md-offset-3">
+    <section>
+        <h1>Regisztráció</h1>
+        <p>Töltsd ki az alábbi mezőket a sikeres regisztrációhoz!</p>
+        <hr>
+        <label id="name" for="username"><b>Név<span class="required"> *</span></b> <span class="scroll-target"></span></label>
+        <input type="text" [(ngModel)]="user.userName" placeholder="Név megadása" name="username" [ngClass]="{'is-invalid': errors.name}" class="form-control">
+        <div class="invalid-feedback"
+            *ngIf="errors.name">
+            Kérlek, ne üres mezőt, hanem nevet adj meg!
+        </div>
+
+        <label id="email" for="email"><b>Email<span class="required"> *</span></b> <span class="scroll-target"></span></label>
+        <input type="text" [(ngModel)]="user.email" placeholder="Emailcím megadása" name="email" [ngClass]="{'is-invalid': errors.email.empty || errors.email.not_valid}" class="form-control">
+        <div class="invalid-feedback"
+            *ngIf="errors.email.empty">
+            Kérlek, ne üres mezőt, hanem egy érvényes email címet adj meg!
+        </div>
+        <div class="invalid-feedback"
+            *ngIf="errors.email.not_valid">
+            Kérlek, egy érvényes email címet adj meg!
+        </div>
+
+        <label id="password" for="psw"><b>Jelszó<span class="required"> *</span></b> <span class="scroll-target"></span></label>
+        <input type="password" [(ngModel)]="user.password" placeholder="Jelszó megadása" name="psw" [ngClass]="{'is-invalid': errors.password.empty || errors.password.not_same}" class="form-control">
+        <div class="invalid-feedback"
+            *ngIf="errors.password.empty">
+            Kérlek, ne üres mezőt, hanem egy jelszót adj meg!
+        </div>
+        <div class="invalid-feedback"
+            *ngIf="errors.password.not_same">
+            Nem egyeznek a megadott jelszavak!
+        </div>
+
+        <label id="passwordConfirm" for="psw-repeat"><b>Jelszó megerősítése<span class="required"> *</span></b> <span class="scroll-target"></span></label>
+        <input type="password" [(ngModel)]="passwordConfirm" placeholder="Jelszó ismételt megadása" name="psw-repeat" [ngClass]="{'is-invalid': errors.passwordConfirm.empty || errors.passwordConfirm.not_same}" class="form-control">
+        <div class="invalid-feedback"
+            *ngIf="errors.passwordConfirm.empty">
+            Kérlek, ne üres mezőt, hanem a fent megadott jelszót add meg újra!
+        </div>
+        <div class="invalid-feedback"
+            *ngIf="errors.passwordConfirm.not_same">
+            Nem egyeznek a megadott jelszavak!
+        </div>
+    </section>
+
+    <!-- <hr>
+
+    <section>
+        <h2>Fotó feltöltése</h2>
+        Válaszd ki a feltölteni kívánt fotót!
+        <input type="file" name="img" class="btn btn-primary btn-sm">
+        <br>
+    </section> -->
+
+    <hr>
+
+    <section>
+        <h2>Már most tudod, mire fogod használni az oldalt?</h2>
+        Bár regisztrációt követően is ráérsz választani, de ha szeretnéd, már most megadhatod az ehhez szükséges adatokat.
+        <br>
+    </section>
+
+    <hr>
+
+    <section>
+        <h3>Kisállat tulajként regisztrálnál?</h3>
+        <button class="btn btn-warning btn-sm" (click)="ownerDataOpen = !ownerDataOpen">Kisállat tulaj vagyok <i class="fa fa-caret-down"></i></button>
+        <div *ngIf="ownerDataOpen" [@dropdownForm] class="dropdown-form">
+            <label for="myPetType"><b>Kérlek válaszd ki, milyen állatod van:</b></label>
+            <!--select id="myPetType" [(ngModel)]="currentPetType" name="myPetType" [ngClass]="{'is-invalid': errors.petType, 'placeholder': currentPetType.value }"  class="form-control">
+                <option value="DOG">Kutya</option>
+                <option value="CAT">Macska</option>
+                <option value="BIRD">Madár</option>
+                <option value="RODENT">Rágcsáló</option>
+                <option value="REPTILE">Hüllő</option>
+            </select-->
+            <select id="myPetType" [(ngModel)]="currentPetType" name="myPetType" [ngClass]="{'is-invalid': errors.petType}" class="form-control">
+                <option *ngFor="let type of petTypes" [value]="type.key">{{type.value}}</option>
+            </select>
+            <div class="invalid-feedback"
+                *ngIf="errors.petType">
+                Kérlek válaszd ki, milyen állatod van!
+            </div>
+            <label for="petsname"><b>Kisállatom neve:</b></label>
+            <input type="text" [(ngModel)]="currentPetName" placeholder="Kisállatom nevének megadása" name="petsname"
+            [ngClass]="{'is-invalid': errors.petsname}" class="form-control">
+                <div class="invalid-feedback"
+                    *ngIf="errors.petsname">
+                    Kérlek, ne üres mezőt, hanem a kisállatod nevét add meg!
+                </div>
+            <button class="btn btn-success" (click)="addToMyPets()">Állat hozzáadása</button>
+            <hr>
+            <div *ngIf=ownerData.pets.length>
+                <h3>Állataid:</h3>
+                <ul>
+                    <li *ngFor="let pet of ownerData.pets">
+                        <b>{{ pet.name }}</b> : {{ pet.petType }}
+                    </li>
+                </ul>
+                <hr>
+            </div>
+        </div>
+    </section>
+
+    <hr>
+
+    <section>
+        <h3>Kisállat vigyázóként regisztrálnál?</h3>
+        <button class="btn btn-warning btn-sm" (click)="sitterDataOpen = !sitterDataOpen">KisállatVigyázó szeretnék lenni! <i class="fa fa-caret-down"></i></button>
+        <div *ngIf="sitterDataOpen" [@dropdownForm] class="dropdown-form">
+            <label for="city"><b>Város:</b></label>
+            <input type="text" [(ngModel)]="sitterData.city" placeholder="Város megadása" name="city" [ngClass]="{'is-invalid': errors.city}" class="form-control">
+            <div class="invalid-feedback"
+                *ngIf="errors.city">
+                Kérlek, ne üres mezőt, hanem a városod nevét add meg!
+            </div>
+
+            <label for="address"><b>Utca:</b></label>
+            <input type="text" [(ngModel)]="sitterData.address" placeholder="Utca megadása" name="address" [ngClass]="{'is-invalid': errors.address}" class="form-control">
+            <div class="invalid-feedback"
+                *ngIf="errors.address">
+                Kérlek, ne üres mezőt, hanem az utcád nevét add meg!
+            </div>
+
+            <label for="postalCode"><b>Irányítószám</b></label>
+            <input type="text" [(ngModel)]="sitterData.postalCode" placeholder="Irányítószám megadása" name="postalCode" [ngClass]="{'is-invalid': errors.postalCode.empty || errors.postalCode.not_valid}" class="form-control">
+            <div class="invalid-feedback"
+                *ngIf="errors.postalCode.empty">
+                Kérlek, ne üres mezőt, hanem az irányítószámodat add meg!
+            </div>
+            <div class="invalid-feedback"
+                *ngIf="errors.postalCode.not_valid">
+                Kérlek, egy létező irányítószámot adj meg!
+            </div>
+
+            <label for="intro"><b>Bemutatkozó szöveg:</b></label>
+            <textarea type="text" [(ngModel)]="sitterData.intro" placeholder="Bemutatkozó szöveg megadása" name="intro" [ngClass]="{'is-invalid': errors.intro}" class="form-control"></textarea>
+            <div class="invalid-feedback"
+                *ngIf="errors.intro">
+                Kérlek, írj egy pár szót magadról!
+            </div>
+            <hr>
+            <h3>Szolgáltatásaid:</h3>
+            <label for="servicePlace"><b>Szolgáltatás nyújtásának helye:</b></label>
+            <!--select [(ngModel)]="currentPlaceOfService" name="servicePlace" [ngClass]="{'is-invalid': errors.servicePlace}" class="form-control">
+                <option value="OWNERS_HOME">Házhoz megyek</option>
+                <option value="SITTERS_HOME">Saját otthonomban fogadom</option>
+            </select-->
+            <select [(ngModel)]="currentPlaceOfService" name="servicePlace" [ngClass]="{'is-invalid': errors.servicePlace}" class="form-control">
+              <option *ngFor="let place of servicePlaces" [value]="place.key">{{place.value}}</option>
+            </select>
+            <div class="invalid-feedback"
+                *ngIf="errors.servicePlace">
+                Kérlek válaszd ki, hol szeretnél vigyázni a kisállatra!
+            </div>
+            <label for="servicePetType"><b>Milyen állattal vállalod ezt a szolgáltatást:</b></label>
+            <!--select [(ngModel)]="currentServicePetType" name="servicePetType" [ngClass]="{'is-invalid': errors.servicePetType}" class="form-control">
+                <option value="DOG">Kutya</option>
+                <option value="CAT">Macska</option>
+                <option value="BIRD">Madár</option>
+                <option value="RODENT">Rágcsáló</option>
+                <option value="REPTILE">Hüllő</option>
+            </select-->
+            <select id="servicePetType" [(ngModel)]="currentServicePetType" name="servicePetType" [ngClass]="{'is-invalid': errors.servicePetType}" class="form-control">
+              <option *ngFor="let type of petTypes" [value]="type.key">{{type.value}}</option>
+            </select>
+            <div class="invalid-feedback"
+                *ngIf="errors.servicePetType">
+                Kérlek válaszd ki, milyen állatokra szeretnél vigyázni!
+            </div>
+            <label for="pricePerHour"><b>Órabér:</b></label>
+            <input type="number" [(ngModel)]="currentWage" placeholder="Órabér megadása" name="pricePerHour" min="1" max="100000" [ngClass]="{'is-invalid': errors.currentWage}" class="form-control">
+            <div class="invalid-feedback"
+                *ngIf="errors.currentWage">
+                Kérlek az általad elvárt órabért add meg!
+            </div>
+            <button class="btn btn-success" (click)="addToMyServices()">Szolgáltatás hozzáadása</button>
+            <hr>
+            <div *ngIf=sitterData.services.length>
+                <h3>Vállalt szolgáltatások:</h3>
+                <ul>
+                    <li *ngFor="let service of sitterData.services">
+                        <b>{{ service.place }}</b> : {{ service.petType }}, {{ service.pricePerHour }} Ft /óra
+                    </li>
+                </ul>
+                <hr>
+            </div>
+        </div>
+    </section>
+
+
+    <div class="text-center final-button-box">
+        <button type="button" class="btn btn-info" routerLink="/">Mégsem</button>
+        <button type="submit" class="btn btn-success" (click)="submitRegistration()">Regisztrálok</button>
+    </div>
+    <div class="alert alert-success" *ngIf="isRegistrationSuccessful == 'SUCCESS'">Sikeres regisztráció! A belépéshez kérjük aktiváld fiókodat az e-mail címedre kiküldött üzenettel! </div>
+    <div class="alert alert-danger" *ngIf="isRegistrationSuccessful == 'ERROR'">Sikertelen regisztráció! Szerverhiba! Kérlek próbáld újra </div>
+</div>
+</div>
+</div>

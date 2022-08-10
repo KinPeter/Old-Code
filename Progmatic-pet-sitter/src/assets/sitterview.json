@@ -1,0 +1,182 @@
+{
+    "userName": "Techno Kolos",
+    "city": "Pocsajd",
+    "address": "Beton út 1.",
+    "postalCode": 5555,
+    "intro": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Porro commodi, accusantium labore totam illum maxime error optio, nihil dicta sint recusandae cum magnam mollitia voluptas. Atque, nobis! Quaerat nemo omnis, minima at illum ipsum dolorem aliquam. Facere pariatur enim odit.",
+    "services": [
+        {
+            "place": "OWNERS_HOME",
+            "petType": "RODENT",
+            "pricePerHour": 1000,
+            "pricePerDay": 4500
+        },
+        {
+            "place": "OWNERS_HOME",
+            "petType": "CAT",
+            "pricePerHour": 1500,
+            "pricePerDay": 6000
+        },
+        {
+            "place": "SITTERS_HOME",
+            "petType": "BIRD",
+            "pricePerHour": 1500,
+            "pricePerDay": 6000
+        }
+    ],
+    "averageRating": 3.65,
+    "numberOfRatings": 34,
+    "availabilities": [
+        {
+            "id": 2,
+            "availability": "BUSY",
+            "date": "2019.07.29"
+        },
+        {
+            "id": 3,
+            "availability": "LIMITED",
+            "date": "2019.07.30"
+        },
+        {
+            "id": 4,
+            "availability": "BUSY",
+            "date": "2019.07.31"
+        },
+        {
+            "id": 5,
+            "availability": "BUSY",
+            "date": "2019.08.01"
+        },
+        {
+            "id": 6,
+            "availability": "FREE",
+            "date": "2019.08.02"
+        },
+        {
+            "id": 7,
+            "availability": "BUSY",
+            "date": "2019.08.03"
+        },
+        {
+            "id": 8,
+            "availability": "FREE",
+            "date": "2019.08.04"
+        },
+        {
+            "id": 9,
+            "availability": "LIMITED",
+            "date": "2019.08.05"
+        },
+        {
+            "id": 10,
+            "availability": "BUSY",
+            "date": "2019.08.06"
+        },
+        {
+            "id": 11,
+            "availability": "LIMITED",
+            "date": "2019.08.07"
+        },
+        {
+            "id": 12,
+            "availability": "FREE",
+            "date": "2019.08.08"
+        },
+        {
+            "id": 13,
+            "availability": "FREE",
+            "date": "2019.08.09"
+        },
+        {
+            "id": 14,
+            "availability": "FREE",
+            "date": "2019.08.10"
+        },
+        {
+            "id": 15,
+            "availability": "FREE",
+            "date": "2019.08.11"
+        },
+        {
+            "id": 16,
+            "availability": "LIMITED",
+            "date": "2019.08.12"
+        },
+        {
+            "id": 17,
+            "availability": "LIMITED",
+            "date": "2019.08.13"
+        },
+        {
+            "id": 18,
+            "availability": "BUSY",
+            "date": "2019.08.14"
+        },
+        {
+            "id": 19,
+            "availability": "FREE",
+            "date": "2019.08.15"
+        },
+        {
+            "id": 20,
+            "availability": "LIMITED",
+            "date": "2019.08.16"
+        },
+        {
+            "id": 21,
+            "availability": "FREE",
+            "date": "2019.08.17"
+        },
+        {
+            "id": 22,
+            "availability": "BUSY",
+            "date": "2019.08.18"
+        },
+        {
+            "id": 23,
+            "availability": "BUSY",
+            "date": "2019.08.19"
+        },
+        {
+            "id": 24,
+            "availability": "FREE",
+            "date": "2019.08.20"
+        },
+        {
+            "id": 25,
+            "availability": "LIMITED",
+            "date": "2019.08.21"
+        },
+        {
+            "id": 26,
+            "availability": "FREE",
+            "date": "2019.08.22"
+        },
+        {
+            "id": 27,
+            "availability": "BUSY",
+            "date": "2019.08.23"
+        },
+        {
+            "id": 28,
+            "availability": "LIMITED",
+            "date": "2019.08.24"
+        },
+        {
+            "id": 29,
+            "availability": "FREE",
+            "date": "2019.08.25"
+        },
+        {
+            "id": 1,
+            "availability": "FREE",
+            "date": "2019.08.26"
+        },
+        {
+            "id": 30,
+            "availability": "LIMITED",
+            "date": "2019.08.26"
+        }
+    ],
+    "id": 1
+}

@@ -1,0 +1,6 @@
+.DS_Store
+.vscode
+.firebase
+node_modules
+public/bundle.*
+keys.js

@@ -1,0 +1,123 @@
+/***********************************************
+*   BODY STYLES
+*/
+body {
+    background: linear-gradient(135deg, #585858 0%,#2e2e2e 100%);
+    height: 100%;
+    font-family: 'Cabin Condensed', sans-serif;
+    color: white;
+}
+
+/***********************************************
+*   BOX STYLES
+*/
+::-webkit-scrollbar { 
+    display: none; 
+}
+.box {
+    padding: 5px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    border-radius: 5px;   
+    background-color: rgba(255, 255, 255, 0.2);
+}
+.box-notes {
+    height: 500px;
+}
+
+.box-title {
+    color: darkorange;
+    text-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-align: center;
+    padding: 5px;
+}
+
+.form-control:focus {
+    border-color: darkorange;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(255, 140, 0, 0.8);
+}
+
+/***********************************************
+*   MODAL STYLES
+*/
+.modal {
+    color: rgb(51, 51, 51);
+}
+.modal-header {
+    background: linear-gradient(135deg, #585858 0%,#2e2e2e 100%) !important;
+}
+.modal span {
+    color: white !important;
+}
+.modal h5 {
+    color: darkorange;
+    text-shadow: 0px 2px 2px rgba(0, 0, 0, 0.5);
+}
+.modal a {
+    color: rgb(51, 51, 51);
+}
+.modal a:hover {
+    color: darkorange;
+    text-decoration: none;
+}
+/***********************************************
+*   NOTES STYLES
+*/
+.notes-wrapper {
+    height: 435px;
+    margin: 0px 5px;
+    overflow-y: scroll;
+}
+.note {
+    background: linear-gradient(135deg, #585858 0%,#414141 100%);
+    padding: 5px;
+    margin-bottom: 5px;
+}
+.note p {
+    margin-bottom: 15px;
+}
+.inactive {
+    color: grey !important;
+}
+.note a {
+    color: darkorange;
+}
+.note a:hover {
+    color: rgb(51, 51, 51);
+    text-decoration: none;
+}
+.icon-btn {
+    float: right;
+    margin-left: 15px;
+}
+.icon-btn:hover, .add-btn:hover {
+    cursor: pointer;
+    color: darkorange;
+}
+.added-at {
+    font-weight: 300;
+    font-family: 'BenchNine', sans-serif;
+}
+.add-note-wrapper {
+    height: 115px;
+}
+textarea, #password {
+    resize: none;
+    background: linear-gradient(135deg, #585858 0%,#414141 100%);
+    color: white !important;
+}
+textarea::placeholder, #password::placeholder {
+    color: rgb(189, 189, 189) !important;  
+}
+.save {
+    float: right;
+    font-size: 1.5rem;
+}
+.add-br {
+    display: inline-block;
+    margin-left: 15px;
+    transform: rotate(90deg);
+}

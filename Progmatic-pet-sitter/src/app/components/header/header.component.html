@@ -1,0 +1,47 @@
+<header class="header header-menu-fullw" [ngClass]="{ scrolled: scrolled }">
+    <div class="header-main">
+        <div class="container">
+            <button type="button" class="navbar-toggle">
+                <i class="fa fa-bars"></i>
+            </button>
+
+            <div class="header-flex">
+                <div class="logo">
+                    <a routerLink="/"><img src="/assets/images/kivi-logo.svg" alt="Kivi Logo"></a>
+                </div>
+
+                <div class="my-head-info text-right">
+                    <a class="btn btn-success btn-sm"
+                        *ngIf="!userLoggedIn"
+                        (click)="openLoginModal()">
+                        <i class="fa fa-sign-in"></i> Bejelentkezés
+                    </a>
+                    <a class="btn btn-success btn-sm"
+                        *ngIf="!userLoggedIn"
+                        routerLink="/registration-page">
+                        <i class="fa fa-user-plus"></i> Regisztráció
+                    </a>
+                    <a class="btn btn-success btn-sm"
+                        *ngIf="userLoggedIn"
+                        routerLink="/my-profile-page">
+                        <i class="fa fa-user"></i> Profilom
+                    </a>
+                    <a class="btn btn-warning btn-sm"
+                        *ngIf="userLoggedIn"
+                        (click)="logMeOut()">
+                        <i class="fa fa-sign-out"></i> Kijelentkezés
+                    </a>
+                    <h4 *ngIf="auth.currentUser" class="userLoginName">
+                        Szia <span>{{ auth.currentUser.name || auth.currentUser.userName }} </span> 
+                        <i class="fa fa-smile-o"></i>
+                    </h4>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <app-navbar></app-navbar>
+
+    <app-login-modal *ngIf="loginModalNeeded" (closeThis)="closeLoginModal()"></app-login-modal>
+
+</header>

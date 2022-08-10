@@ -1,0 +1,72 @@
+<section class="container">
+    <mat-card>
+        <h1 class="mat-h1">Links</h1>
+        <ul class="tags" fxLayout="row wrap" fxLayoutGap="10px">
+            <li *ngFor="let tag of ls.tags">
+                <button 
+                    mat-raised-button 
+                    color="accent"
+                    (click)="fetchLinks(tag[0])">
+                    {{ tag[1] | uppercase }}
+                </button>
+            </li>
+        </ul>
+    </mat-card>
+</section>
+
+<section class="container">
+    <mat-card>
+        <button mat-fab color="primary" (click)="onAddNew()">
+            <mat-icon>add</mat-icon>
+        </button>
+        <div fxLayoutAlign="center center">
+            <mat-form-field fxFlex.xs="90%" fxFlex="40%">
+                <input matInput type="text" (keyup)="doFilter($event.target.value)" placeholder="Filter">
+            </mat-form-field>
+        </div>
+        <mat-table [dataSource]="dataSource" matSort>
+            
+            <ng-container matColumnDef="name">
+                <mat-header-cell *matHeaderCellDef mat-sort-header style="flex-basis: 15%">Name</mat-header-cell>
+                <mat-cell *matCellDef="let element" style="flex-basis: 15%">{{ element.name }}</mat-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="url">
+                <mat-header-cell *matHeaderCellDef>URL</mat-header-cell>
+                <mat-cell *matCellDef="let element">
+                    <a href="{{ element.url }}" target="_blank">< Link ></a> 
+                </mat-cell>
+            </ng-container>
+        
+            <ng-container matColumnDef="tags">
+                <mat-header-cell *matHeaderCellDef mat-sort-header style="flex-basis: 30%">Tags</mat-header-cell>
+                <mat-cell *matCellDef="let element" style="flex-basis: 30%">
+                    <span class="tag-span" *ngFor="let tag of element.tags">{{ tag }}</span>
+                </mat-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="actions">
+                <mat-header-cell *matHeaderCellDef>Actions</mat-header-cell>
+                <mat-cell *matCellDef="let element">
+                    <div class="actions">
+                        <button mat-mini-fab color="accent"
+                            (click)="onEdit(element)">
+                            <mat-icon>create</mat-icon>
+                        </button>
+                        <button mat-mini-fab color="warn"
+                            (click)="onDelete(element)">
+                            <mat-icon>delete</mat-icon>
+                        </button>
+                    </div>
+                </mat-cell>
+            </ng-container>
+        
+            <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+            <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+        
+        </mat-table>
+        
+        <mat-paginator [pageSize]="8" [pageSizeOptions]="[5, 8, 15, 25]">
+        </mat-paginator>
+    </mat-card>
+</section>

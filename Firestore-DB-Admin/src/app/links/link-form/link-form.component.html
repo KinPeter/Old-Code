@@ -1,0 +1,32 @@
+<h1 *ngIf="data" mat-dialog-title>Edit link: {{data.name}}</h1>
+<h1 *ngIf="!data" mat-dialog-title>Add new link</h1>
+<div mat-dialog-content>
+    <form #form="ngForm" fxLayout="column">
+        <mat-form-field>
+            <input matInput placeholder="Name" name="name" ngModel required>
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="URL" name="url" ngModel required>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Tags</mat-label>
+            <mat-select multiple name="tags" ngModel required>
+                <mat-option *ngFor="let tag of ls.tags" [value]="tag[0]">{{ tag[1] }}</mat-option>
+            </mat-select>
+        </mat-form-field>
+    </form>
+</div>
+<div mat-dialog-actions style="justify-content: flex-end">
+    <button 
+        mat-stroked-button 
+        (click)="onCancel()">
+        Cancel
+    </button>
+    <button 
+        mat-flat-button 
+        color="accent" 
+        (click)="onSave()" 
+        [disabled]="form.invalid || !form.dirty">
+        Save
+    </button>
+</div>

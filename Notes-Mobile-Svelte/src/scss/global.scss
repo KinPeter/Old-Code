@@ -1,0 +1,24 @@
+/*  
+sass --watch --style=compressed src/scss/global.scss:public/global.css
+*/
+@import './variables';
+@import './fonts';
+
+body {
+    background-color: $blue3;
+    padding: .5rem;
+    font-family: 'Cabin Condensed';
+}
+
+.spinner {
+    position: fixed;
+    top: 0.2rem;
+    left: calc(100vw / 2 - 35px);
+    transform: scale(0.6);
+}
+
+@import './notes';
+@import './note';
+@import './header';
+@import './login';
+@import './add-note';

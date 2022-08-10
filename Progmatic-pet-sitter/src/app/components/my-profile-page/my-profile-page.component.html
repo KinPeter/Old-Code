@@ -1,0 +1,210 @@
+<!--
+<div action="action_page.php" style="border:1px solid #ccc">
+-->
+
+  <div class="container">
+    <h1 class="page-header">Profil adatok</h1>
+    <div class="row">
+      <!-- left column -->
+      <div class="col-md-3 col-sm-6 col-xs-12">
+        <div class="text-center" id="img">
+      <!--   <img src="http://lorempixel.com/200/200/people/9/" class="avatar img-circle img-thumbnail" alt="avatar"> -->
+          <img src="{{profilePicUrl}}" class="avatar img-circle img-thumbnail" alt="avatar" id="img-photo">
+          <h6>Új profilkép feltöltése</h6>
+          <input type="file" (change)="onFileSelected($event)" class="text-center center-block well well-sm" class="form-control" #fileInput>
+        <!--  <input class="btn btn-success" (click)="fileInput.click()" value="Válassz képet"> -->
+          <button class="btn btn-primary"  id="profile-img-upload" type="button" (click)="onUpload()">Kiválasztott kép feltöltése</button>
+        </div>
+
+      </div>
+
+      <!-- edit form column -->
+      <div class="col-md-7 col-md-offset-2 col-sm-8 col-xs-12" id="personal-info">
+
+        <div class="form-horizontal" role="form">
+          <h3>Személyes adataid</h3>
+          <div class="form-group">
+            <label class="col-lg-3 control-label"><b>Név:</b></label>
+            <div class="col-lg-8">
+              <input type="text" placeholder="Név" name="username" [(ngModel)]="user.userName" [ngClass]="{'is-invalid': validator.validateName(user.userName)}" class="form-control" required>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-lg-3 control-label"><b>E-mail cím:</b></label>
+            <div class="col-lg-8">
+              <input disabled type="text" placeholder="Emailcím" name="email" id="email" [(ngModel)]="user.email" [ngClass]="{'is-invalid': validator.validateEmailInComponent(isEmailValid, user.email)}" class="form-control" required>
+              <div class="invalid-feedback"
+                  *ngIf="validator.validateEmailInComponent(isEmailValid, user.email)">Kérlek, valós e-mail címet adj meg!
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-lg-3 control-label"><b>Új jelszó megadása:</b></label>
+            <div class="col-lg-8">
+              <input type="password" name="pass" placeholder="Új jelszó megadása" id="psw" [(ngModel)]="user.password" class="form-control" required>
+              </div>
+          </div>
+          <div class="form-group">
+            <label class="col-lg-3 control-label"><b>Új jelszó megerősítése:</b></label>
+            <div class="col-lg-8">
+              <input type="password" name="pass-again" placeholder="Új jelszó megerősítése" id="psw-repeat" [(ngModel)]="passwordConfirm"
+               [ngClass]="{'is-invalid': validatePassword(isPasswordValid)}" class="form-control" required>
+               <div class="invalid-feedback"
+                   *ngIf="validatePassword(isPasswordValid)">Nem egyeznek a megadott jelszavak!
+               </div>
+            </div>
+          </div>
+          <hr>
+          <section>
+          <h3>Kisállatom adatai</h3>
+            <button class="btn btn-warning btn-sm" id="pet-data-button"(click)="addPetOpen = !addPetOpen">Kisállatom adatai<i class="fa fa-caret-down"></i></button>
+            <div *ngIf="addPetOpen" [@dropdownForm] class="dropdown-form">
+              <div *ngIf="showOwnerData()">
+                  <!--<h3>Kisállataid</h3> -->
+                  <div class="form-group">
+                      <div class="col-lg-8">
+                          <div *ngIf=user.ownerData.pets.length>
+                            <ul>
+                              <li *ngFor="let pet of user.ownerData.pets">
+                                <b>{{ pet.name }}</b> : {{ pet.petType }}
+                                <button class="btn btn-primary btn-xs" (click)="deletePet(pet)" id="delete-button">Kisállat törlése</button>
+                              </li>
+                            </ul>
+                          </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                  <label  for="myPetType" class="col-lg-3 control-label"><b>Kisállatod fajtája:</b></label>
+                  <div class="col-lg-8">
+                    <select id="myPetType" [(ngModel)]="currentPetType" name="myPetType" class="form-control">
+                        <option *ngFor="let type of petTypes" [value]="type.key">{{type.value}}</option>
+                    </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                  <label for="petsname" class="col-lg-3 control-label"><b>Kisállatod neve:</b></label>
+                  <div class="col-lg-8">
+                    <input type="text" [(ngModel)]="currentPetName" placeholder="Kisállat neve" name="petsname"
+                      class="form-control">
+                      <input class="btn btn-success" id="add-pet" (click)="addToMyPets()" value="Kisállat hozzáadása">
+                  </div>
+                </div>
+            </div>
+          </section>
+
+          <hr>
+
+          <section>
+            <h3>KiVi adataim</h3>
+              <button class="btn btn-warning btn-sm" (click)="addServiceOpen = !addServiceOpen" id="kivi-data">KiVi adataim<i class="fa fa-caret-down"></i></button>
+              <div *ngIf="addServiceOpen" [@dropdownForm] class="dropdown-form">
+
+                <div class="form-group">
+                  <label class="col-lg-3 control-label"><b>Irányítószám:</b></label>
+                  <div class="col-lg-8">
+                    <input type="text" name="zipcode" placeholder="Irányítószám megadása" id="postalCode" [(ngModel)]="user.sitterData.postalCode" [ngClass]="{'is-invalid': validator.validatePostcodeInComponent(isPostcodeValid, user.sitterData.postalCode)}" class="form-control">
+                    <div class="invalid-feedback"
+                        *ngIf="validator.validatePostcodeInComponent(isPostcodeValid, user.sitterData.postalCode)">
+                        Kérlek, valós irányítószámot adj meg!
+                    </div>
+                  </div>
+
+                </div>
+                <div class="form-group">
+                  <label class="col-lg-3 control-label"><b>Város:</b></label>
+                  <div class="col-lg-8">
+                    <input type="text" name="city" placeholder="Város megadása" id="city" [(ngModel)]="user.sitterData.city" class="form-control" required>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="col-lg-3 control-label"><b>Utca:</b></label>
+                  <div class="col-lg-8">
+                    <input type="text" name="street" placeholder="Utca megadása" id="address" [(ngModel)]="user.sitterData.address" class="form-control" required>
+                  </div>
+                </div>
+                <div  class="form-group">
+                  <label class="col-lg-3 control-label"><b>Bemutatkozó szöveg:</b></label>
+                  <div class="col-lg-8">
+                  <!--  <input type="text" name="intro" placeholder="Bemutatkozó szöveg megadása" id="intro" [(ngModel)]="user.sitterData.intro"  class="form-control" required> -->
+                    <textarea class="form-control" required [(ngModel)]="user.sitterData.intro">Bemutatkozó szöveg megadása</textarea>
+                  </div>
+                </div>
+                <hr>
+                <div class="form-group">
+                  <div *ngIf="showSitterData()">
+                    <h3>Vállalt szolgáltatások</h3>
+                    <div *ngIf= user.sitterData.services.length>
+                      <ul>
+                        <li *ngFor="let service of user.sitterData.services">
+                            <b>{{ service.place }}</b> : {{ service.petType }}, {{ service.pricePerHour }} Ft /óra
+                            <button class="btn btn-primary btn-xs" (click)="deleteService(service)" id="delete-button" >Szolgáltatás törlése</button>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="servicePlace" class="col-lg-3 control-label"><b>Szolgáltatás helyszíne:</b></label>
+                  <div class="col-lg-8">
+                    <select [(ngModel)]="currentPlaceOfService" name="servicePlace" class="form-control">
+                      <option *ngFor="let place of servicePlaces" [value]="place.key">{{place.value}}</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label  for="servicePetType" class="col-lg-3 control-label"><b>Kisállat típusa:</b></label>
+                  <div class="col-lg-8">
+                    <select id="servicePetType" [(ngModel)]="currentServicePetType" name="servicePetType" class="form-control">
+                      <option *ngFor="let type of petTypes" [value]="type.key">{{type.value}}</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="col-lg-3 control-label"><b>Órabér:</b></label>
+                  <div class="col-lg-8">
+                    <input type="text" [(ngModel)]="currentWage" placeholder="Órabér megadása" name="pricePerHour" class="form-control">
+                    <input class="btn btn-success" id="add-service" type="button" (click)="addToMyServices()" value="Szolgáltatás hozzáadása">
+                  </div>
+                </div>
+                <div *ngIf="showSitterData()">
+                  <hr>
+                  <h4>Naptár</h4>
+                  <p>Elfoglaltságaid a következő 30 napban.</p>
+                  <app-sitter-calendar
+                    *ngIf="!isLoading"
+                    [isComingFromSitterProfile]=false
+                    [viewedSitter]="user.sitterData"
+                    (updateAvailabilities)="updateAvailabilities($event)">
+                  </app-sitter-calendar>
+                  <div class="map-legend">
+                    <div><span class="legend-green"></span> Egész nap ráérek</div>
+                    <div><span class="legend-orange"></span> Talán ráérek</div>
+                    <div><span class="legend-red"></span> Elfoglalt vagyok</div>
+                  </div>
+                </div>
+            </div>
+          </section>
+        </div>
+        <hr>
+
+          <div class="form-group">
+            <label class="col-lg-3 control-label"></label>
+            <div class="col-lg-8 final-button-box">
+                <button class="btn btn-primary" (click)="save()"type="button" id="save-button" name="button">Változtatások mentése</button>
+                <div class="spinner-wrapper" *ngIf="isLoading">
+              	   <div class="spinner-box">
+              		    <p>Kis türelmet...</p>
+              		      <app-spinner></app-spinner>
+              	     </div>
+                </div>
+                <div class="alert-box">
+                  <div class="alert alert-success" *ngIf="isSaveSuccessful"><i class="fa fa-check-circle"></i> A változtatások sikeresen mentésre kerültek.</div>
+                  <div class="alert alert-danger" *ngIf="showNetworkAlert"><i class="fa fa-exclamation-circle"></i> A változtatások mentése nem sikerült, kérlek, próbáld újra.</div>
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  </div>

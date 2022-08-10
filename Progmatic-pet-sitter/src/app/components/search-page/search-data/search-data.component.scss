@@ -1,0 +1,78 @@
+.job_filters {
+  background: #ebebeb;
+  border-radius: 6px 6px 0 0;
+}
+.job_filters .search_jobs {
+  padding: 15px 15px;
+}
+.job_filters .search_jobs div {
+  padding: 0 15px !important;
+}
+.job_filters .search_jobs div.search_keywords {
+  width: 100%;
+  float: none;
+  margin-bottom: 15px;
+}
+@media (min-width: 768px) {
+  .job_filters .search_jobs div.search_keywords {
+    width: 20%;
+    float: left;
+    margin-bottom: 0;
+  }
+}
+.job_filters .search_jobs div.search_location {
+  width: 100%;
+  float: none;
+  margin-bottom: 15px;
+}
+@media (min-width: 768px) {
+  .job_filters .search_jobs div.search_location {
+    width: 15%;
+    float: left;
+    margin-bottom: 0;
+  }
+}
+.job_filters .search_jobs div.search_type {
+  width: 100%;
+  float: none;
+  margin-bottom: 15px;
+}
+@media (min-width: 768px) {
+  .job_filters .search_jobs div.search_type {
+    width: 20%;
+    float: left;
+    margin-bottom: 0;
+  }
+}
+
+.job_filters .search_jobs div.search_place {
+  width: 100%;
+  float: none;
+  margin-bottom: 15px;
+}
+@media (min-width: 768px) {
+  .job_filters .search_jobs div.search_place {
+    width: 30%;
+    float: left;
+    margin-bottom: 0;
+  }
+}
+.job_filters .search_jobs div.search_submit {
+  width: 100%;
+  float: none;
+}
+@media (min-width: 768px) {
+  .job_filters .search_jobs div.search_submit {
+    width: 15%;
+    float: left;
+  }
+}
+
+.is-invalid {
+    border: 1px solid red;
+    box-shadow: 0 0 3px red;
+}
+.invalid-feedback {
+    color: red;
+    font-size: 1.2rem;
+}

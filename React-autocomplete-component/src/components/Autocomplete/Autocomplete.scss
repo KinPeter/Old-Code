@@ -1,0 +1,164 @@
+// Customizable variables:
+
+$mainColor: #2648b9;
+$focusColor: rgb(190, 49, 49);
+$mainTextColor: black;
+
+$wrapperPadding: 2rem;
+
+$inputFieldPadding: .5rem;
+$inputFieldBorder: 1px solid $mainColor;
+$inputFieldBorderRadius: 5px;
+
+$inputFieldAndButtonBorderColorOnFocus: $focusColor;
+$inputFieldAndButtonShadowOnFocus: 0px 0px 3px $focusColor;
+
+$buttonPadding: .2rem 1rem;
+$buttonMarginTop: .5rem;
+$buttonBorder: 1px solid $mainColor;
+$buttonBorderRadius: 5px;
+$buttonBackgroundColor: white;
+$buttonTextColor: $mainTextColor;
+$buttonHoverBackgroundColor: #7588c5;
+$buttonHoverTextColor: $mainTextColor;
+
+$optionBoxMaxHeight: 150px;
+$optionBoxBackgroundColor: white;
+$optionBoxBorder: 1px solid $mainColor;
+$optionBoxBorderRadius: 5px;
+$optionBoxShadow: 1px 1px 3px #000000aa;
+$optionTextColor: $mainTextColor;
+$optionHoverBackgroundColor: lightgrey;
+$optionHoverTextColor: $mainTextColor;
+
+$toggleColorOn: #28A745;
+$toggleColorOff: #DC3545;
+
+@mixin toggleButton ($color1, $color2) {
+    background: transparent;
+    border: 1px solid $color1;
+    box-shadow: 0 0 5px $color1;
+    &:hover {
+        background: $color2;
+        border: 1px solid $color2;
+        box-shadow: 0 0 5px $color2;
+    }
+}
+
+.Autocomplete {
+    padding: $wrapperPadding;
+
+    .input-wrapper {
+        display: flex;
+        .input-field {
+            flex-grow: 2;
+            padding: $inputFieldPadding;
+            border: $inputFieldBorder;
+            border-radius: $inputFieldBorderRadius;
+            &:focus {
+                border-color: $inputFieldAndButtonBorderColorOnFocus;
+                box-shadow: $inputFieldAndButtonShadowOnFocus;
+                outline: none; //remove browser default outline
+            }
+        }
+    }
+
+    button {
+        cursor: pointer;
+        padding: $buttonPadding;
+        margin-top: $buttonMarginTop;
+        border: $buttonBorder;
+        border-radius: $buttonBorderRadius;
+        color: $buttonTextColor;
+        background-color: $buttonBackgroundColor;
+        &:hover {
+            color: $buttonHoverTextColor;
+            background-color: $buttonHoverBackgroundColor;
+        }
+        &:focus {
+            border-color: $inputFieldAndButtonBorderColorOnFocus;
+            box-shadow: $inputFieldAndButtonShadowOnFocus;
+            outline: none;
+        }
+    }
+
+    .option-wrapper {
+        position: relative;
+        top: .2rem;
+        text-align: left;
+        width: 100%;
+        ::-webkit-scrollbar { 
+            display: none; 
+        }
+        .option-list {
+            max-height: $optionBoxMaxHeight;
+            overflow-y: auto;
+            width: calc(100% - 2px);
+            position: absolute;
+            background: $optionBoxBackgroundColor; // fallback
+            // scroll hint effect:
+            background: linear-gradient(white 15px, hsla(0,0%,100%,0)) 0 0 / 100% 50px,
+                        radial-gradient(at top, rgba(0,0,0,.3), transparent 70%) 0 0 / 100% 15px,
+                        linear-gradient(to top, white 15px, hsla(0,0%,100%,0)) bottom / 100% 50px,
+                        radial-gradient(at bottom, rgba(0,0,0,.3), transparent 70%) bottom / 100% 15px,
+                        linear-gradient($optionBoxBackgroundColor, $optionBoxBackgroundColor);
+            background-repeat: no-repeat;
+            background-attachment: local, scroll, local, scroll, scroll;
+            border: $optionBoxBorder;
+            border-radius: $optionBoxBorderRadius;
+            box-shadow: $optionBoxShadow;
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            
+            li {
+                padding-left: .5rem;
+                color: $optionTextColor;
+                cursor: pointer;
+            }
+            .hovered {
+                background-color: $optionHoverBackgroundColor;
+                color: $optionHoverTextColor;
+            }
+        }
+    }
+
+    .toggle-wrapper {
+        display: flex;
+        flex-flow: row-reverse;
+        position: relative;
+        .toggle-box {
+            cursor: pointer;
+            position: absolute;
+            top: -56px;
+            right: 10px;
+            height: 13px;
+            width: 13px;
+            border-radius: 50%;
+            &.toggle-on {
+                @include toggleButton($toggleColorOn, $toggleColorOff);
+            }
+            &.toggle-off {
+                @include toggleButton($toggleColorOff, $toggleColorOn);
+            }
+            &:hover {
+                .toggle-info {
+                    opacity: 1;
+                    transform: scaleX(1);
+                }
+            }
+            .toggle-info {
+                position: absolute;
+                right: 10px;
+                top: -3px;
+                width: 140px;
+                font-size: .8rem;
+                color: darkgray;
+                transform-origin: center right;
+                transform: scaleX(0);
+                opacity: 0;
+                transition: all .2s ease-in;
+            }
+        }
+    }
+}

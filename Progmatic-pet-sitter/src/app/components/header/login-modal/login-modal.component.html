@@ -1,0 +1,52 @@
+<div class="modal-back" 
+    (click)="closeMe()"
+    [@backdropFade]>
+</div>
+<div class="box modal-front"
+    [@modalSlide]>
+    <h3>Bejelentkezés</h3>
+    <div class="form-group">
+        <label>Email cím <span class="required">*</span></label>
+        <input type="text" 
+            [(ngModel)]="loginData.email"
+            [ngClass]="{'is-invalid': !isEmailValid}" 
+            class="form-control">
+        <div class="invalid-feedback"
+            *ngIf="!isEmailValid">
+            Kérlek, valós e-mail címet adj meg!
+        </div>
+        
+    </div>
+    <div class="form-group">
+        <div class="clearfix">
+            <label class="pull-left">
+                Jelszó <span class="required">*</span>
+            </label>
+        </div>
+        <input type="password" 
+        class="form-control" 
+        [(ngModel)]="loginData.password"
+        [ngClass]="{'is-invalid': !isPasswordValid}"
+        (keyup.enter)="sendLoginData()" >
+        <div class="invalid-feedback" *ngIf="!isPasswordValid">
+            Kérlek, add meg a jelszavad!
+        </div>
+        <span class="pull-right"><a (click)="sendForgotPassword()">Elfelejtetted a jelszavad?</a></span>
+    </div>
+    <div class="alert alert-success" *ngIf="isLoginSuccessful">A bejelentkezés sikeres.</div>
+    <div class="alert alert-danger" *ngIf="isLoginError === 401">Hibás felhasználónév vagy jelszó.</div>
+    <div class="alert alert-danger" *ngIf="isLoginError === 0 || isLoginError > 401">Hiba történt, kérlek próbáld meg később.</div>
+    <div class="alert alert-success" *ngIf="isForgotPasswordSuccessful">Az ideiglenes jelszót elküldtük a megadott címre.</div>
+    <div class="alert alert-danger" *ngIf="isForgotPasswordError">A kérés sikertelen. Kérlek vedd fel velünk a kapcsolatot.</div>
+    <div class="row">
+        <div class="col-xs-8">
+            <button class="btn btn-primary btn-inline" (click)="sendLoginData()">Bejelentkezek</button>
+            <!-- <label for="remember" class="checkbox-inline">
+                <input type="checkbox" name="remember" id="remember"> Emlékezz rám
+            </label> -->
+        </div>
+        <div class="col-xs-4">
+            <app-spinner *ngIf="isLoading"></app-spinner>
+        </div>
+    </div>
+</div>

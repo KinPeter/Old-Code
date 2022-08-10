@@ -1,0 +1,28 @@
+a {
+    cursor: pointer;
+    font-weight: 300 !important;
+}
+
+@media (min-width: 992px) {
+    .flexnav > li + li {
+        margin-left: 0 !important;
+    }
+}
+
+@media (min-width: 992px) {
+    #navbar {
+        transition: height 0.2s;
+
+        &.scrolled {
+            height: 50px;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            box-shadow: 0 0 5px rgba(0,0,0,0.6);
+        
+            .flexnav > li > a {
+                line-height: 47px;
+            }
+        }
+    }
+}
