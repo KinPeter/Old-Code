@@ -1,0 +1,11 @@
+### Get the current MPR state
+GET http://localhost:8400/linux/mpr/current-state
+
+### Change mouse profile
+POST http://localhost:8400/linux/mpr/change-profile
+Content-Type: application/json
+
+{
+  "abbreviation": null,
+  "profileNumber": 0
+}

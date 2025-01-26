@@ -1,0 +1,16 @@
+FROM node:16.13.1 AS builder
+
+WORKDIR /app
+RUN git clone https://github.com/PKStart/pks-web.git
+
+WORKDIR /app/pks-web
+RUN echo "PK_API_URL_PROD=http://api:8100" > ./.env
+RUN npm ci
+RUN npm run build
+
+FROM nginx:alpine
+
+WORKDIR /usr/share/nginx/html
+RUN rm -rf ./*
+COPY --from=builder /app/pks-web/dist/ .
+ENTRYPOINT ["nginx", "-g", "daemon off;"]

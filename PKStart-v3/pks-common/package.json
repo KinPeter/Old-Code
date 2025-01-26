@@ -1,0 +1,32 @@
+{
+  "name": "pks-common",
+  "version": "1.0.2",
+  "description": "Common code for PKStart project",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "rm -rf ./dist && tsc --build ./tsconfig.json",
+    "prepare": "npm run build",
+    "husky:install": "husky install",
+    "lint": "eslint \"{enums,types,utils,test}/**/*.ts\" --fix",
+    "format:check": "prettier --check \"{enums,types,utils,test}/**/*.{ts,scss,html,json}\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/PKStart/pks-common"
+  },
+  "author": "Peter Kin",
+  "license": "MIT",
+  "dependencies": {
+    "typescript": "^4.7.4"
+  },
+  "devDependencies": {
+    "husky": "^8.0.1",
+    "@typescript-eslint/eslint-plugin": "^5.33.0",
+    "@typescript-eslint/parser": "^5.33.0",
+    "eslint": "^8.21.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "prettier": "^2.7.1"
+  }
+}

@@ -1,0 +1,16 @@
+FROM node:16.13.1-alpine
+
+WORKDIR /app
+COPY ./pks-api/src ./src/
+COPY ./pks-api/seeding ./seeding/
+COPY ./pks-api/nest-cli.json .
+COPY ./pks-api/ormconfig.ts .
+COPY ./pks-api/package.json .
+COPY ./pks-api/package-lock.json .
+COPY ./pks-api/tsconfig.json .
+COPY ./pks-api/tsconfig.build.json .
+
+RUN npm ci
+RUN npm run build
+
+CMD ["npm", "run", "start:prod"]

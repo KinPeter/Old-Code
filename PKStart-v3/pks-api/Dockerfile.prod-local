@@ -1,0 +1,14 @@
+# !!!
+# Use this Dockerfile for deployment using the flyctl cli locally
+
+FROM node:18.11.0-alpine
+
+WORKDIR /app
+COPY . .
+COPY ./.env.prod ./.env
+RUN npm ci
+
+RUN npm run build
+
+CMD ["npm", "run", "start:prod"]
+

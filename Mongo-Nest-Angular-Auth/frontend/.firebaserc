@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "pk-tripplanner": {
+      "hosting": {
+        "trip-planner": [
+          "pk-tripplanner"
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,15 @@
+name: Web e2e tests
+
+on:
+  workflow_dispatch:
+
+jobs:
+  web-e2e:
+    name: Web frontend e2e tests
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Run Web e2e tests
+        run: docker-compose -f ./docker/web-e2e/docker-compose.web-e2e.yml up --build --exit-code-from cypress

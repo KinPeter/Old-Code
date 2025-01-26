@@ -1,0 +1,23 @@
+FROM node:16.13.1 AS builder
+
+WORKDIR /app
+COPY ./pks-web/src ./src/
+COPY ./pks-web/scripts ./scripts/
+COPY ./pks-web/angular.json .
+COPY ./pks-web/karma.conf.js .
+COPY ./pks-web/package.json .
+COPY ./pks-web/package-lock.json .
+COPY ./pks-web/tsconfig.app.json .
+COPY ./pks-web/tsconfig.spec.json .
+COPY ./pks-web/tsconfig.json .
+
+RUN echo "PK_API_URL_PROD=http://api:8100" > ./.env
+RUN npm ci
+RUN npm run build
+
+FROM nginx:alpine
+
+WORKDIR /usr/share/nginx/html
+RUN rm -rf ./*
+COPY --from=builder /app/dist/ .
+ENTRYPOINT ["nginx", "-g", "daemon off;"]

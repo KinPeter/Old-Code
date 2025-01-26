@@ -1,0 +1,35 @@
+{
+  "name": "pks-e2e",
+  "version": "1.0.0",
+  "description": "E2E Tests for PKStart",
+  "main": "index.js",
+  "scripts": {
+    "prepare": "husky install",
+    "format": "prettier --write \"web-e2e/**/*.{js,ts,json}\"",
+    "format:check": "prettier --check \"web-e2e/**/*.{js,ts,json}\"",
+    "lint": "eslint \"web-e2e/**/*.{js,ts}\" --fix",
+    "watch:web": "cypress open --project ./web-e2e/",
+    "test:web": "cypress run --project ./web-e2e/",
+    "test:web:docker": "docker-compose -f docker/web-e2e/docker-compose.web-e2e.yml up --build --exit-code-from cypress && docker-compose -f docker/web-e2e/docker-compose.web-e2e.yml down -v",
+    "test:web:docker-local": "docker-compose -f docker/web-e2e-local/docker-compose.web-e2e-local.yml up --build --exit-code-from cypress && docker-compose -f docker/web-e2e-local/docker-compose.web-e2e-local.yml down -v"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PKStart/pks-e2e.git"
+  },
+  "author": "Peter Kin",
+  "license": "ISC",
+  "dependencies": {
+    "cypress": "^10.4.0",
+    "typescript": "^4.7.4"
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^5.33.0",
+    "@typescript-eslint/parser": "^5.33.0",
+    "eslint": "^8.21.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "husky": "^8.0.1",
+    "prettier": "^2.7.1"
+  }
+}
